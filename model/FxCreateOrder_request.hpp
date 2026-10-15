@@ -21,6 +21,7 @@
 
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/Types.hpp"
+#include "FxOrder.hpp"
 
 namespace fxmodel
 {
@@ -35,7 +36,7 @@ class FxCreateOrder_request : public oatpp::DTO {
 
   DTO_INIT(FxCreateOrder_request, DTO /* Extends */)
 
-  DTO_FIELD(oatpp::Object, order);
+  DTO_FIELD(oatpp::Object<FxOrder>, order);
   DTO_FIELD(oatpp::Boolean, orderIsSet);
 
 };
