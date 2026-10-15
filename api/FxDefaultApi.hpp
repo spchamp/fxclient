@@ -117,7 +117,7 @@ public:
   /// <param name="instrument">Name of the Instrument</param>
   /// <param name="closePositionBody">Representation of how to close the position</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
-  API_CALL("PUT", "/accounts/{accountID}/positions/{instrument}/close", close_position, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, instrument), BODY_DTO(oatpp::Object<fxmodel::FxFxClosePosition_request>, closePositionBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
+  API_CALL("PUT", "/accounts/{accountID}/positions/{instrument}/close", close_position, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, instrument), BODY_DTO(oatpp::Object<fxmodel::FxClosePosition_request>, closePositionBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
   /// <summary>
   /// Close Trade
   /// </summary>
@@ -129,7 +129,7 @@ public:
   /// <param name="tradeSpecifier">Specifier for the Trade</param>
   /// <param name="closeTradeBody">Details of how much of the open Trade to close.</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
-  API_CALL("PUT", "/accounts/{accountID}/trades/{tradeSpecifier}/close", close_trade, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, tradeSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxFxCloseTrade_request>, closeTradeBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
+  API_CALL("PUT", "/accounts/{accountID}/trades/{tradeSpecifier}/close", close_trade, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, tradeSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxCloseTrade_request>, closeTradeBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
   /// <summary>
   /// Configure Account
   /// </summary>
@@ -140,7 +140,7 @@ public:
   /// <param name="accountID">Account Identifier</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
   /// <param name="configureAccountBody">Representation of the Account configuration to set (optional)</param>
-  API_CALL("PATCH", "/accounts/{accountID}/configuration", configure_account, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"), BODY_DTO(oatpp::Object<fxmodel::FxFxConfigureAccount_request>, configureAccountBody))
+  API_CALL("PATCH", "/accounts/{accountID}/configuration", configure_account, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"), BODY_DTO(oatpp::Object<fxmodel::FxConfigureAccount_request>, configureAccountBody))
   /// <summary>
   /// Create Order
   /// </summary>
@@ -151,7 +151,7 @@ public:
   /// <param name="accountID">Account Identifier</param>
   /// <param name="createOrderBody"></param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
-  API_CALL("POST", "/accounts/{accountID}/orders", create_order, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), BODY_DTO(oatpp::Object<fxmodel::FxFxCreateOrder_request>, createOrderBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
+  API_CALL("POST", "/accounts/{accountID}/orders", create_order, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), BODY_DTO(oatpp::Object<fxmodel::FxCreateOrder_request>, createOrderBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
   /// <summary>
   /// Account Details
   /// </summary>
@@ -503,7 +503,7 @@ public:
   /// <param name="replaceOrderBody">Specification of the replacing Order. The replacing order must have the same type as the replaced Order.</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
   /// <param name="clientRequestID">Client specified RequestID to be sent with request. (optional, default to &quot;&quot;)</param>
-  API_CALL("PUT", "/accounts/{accountID}/orders/{orderSpecifier}", replace_order, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, orderSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxFxCreateOrder_request>, replaceOrderBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"), HEADER(oatpp::String, clientRequestID, "clientRequestID"))
+  API_CALL("PUT", "/accounts/{accountID}/orders/{orderSpecifier}", replace_order, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, orderSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxCreateOrder_request>, replaceOrderBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"), HEADER(oatpp::String, clientRequestID, "clientRequestID"))
   /// <summary>
   /// Set Order Extensions
   /// </summary>
@@ -515,7 +515,7 @@ public:
   /// <param name="orderSpecifier">The Order Specifier</param>
   /// <param name="setOrderClientExtensionsBody">Representation of the replacing Order</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
-  API_CALL("PUT", "/accounts/{accountID}/orders/{orderSpecifier}/clientExtensions", set_order_client_extensions, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, orderSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxFxSetOrderClientExtensions_request>, setOrderClientExtensionsBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
+  API_CALL("PUT", "/accounts/{accountID}/orders/{orderSpecifier}/clientExtensions", set_order_client_extensions, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, orderSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxSetOrderClientExtensions_request>, setOrderClientExtensionsBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
   /// <summary>
   /// Set Trade Client Extensions
   /// </summary>
@@ -527,7 +527,7 @@ public:
   /// <param name="tradeSpecifier">Specifier for the Trade</param>
   /// <param name="setTradeClientExtensionsBody">Details of how to modify the Trade&#39;s Client Extensions.</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
-  API_CALL("PUT", "/accounts/{accountID}/trades/{tradeSpecifier}/clientExtensions", set_trade_client_extensions, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, tradeSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxFxSetTradeClientExtensions_request>, setTradeClientExtensionsBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
+  API_CALL("PUT", "/accounts/{accountID}/trades/{tradeSpecifier}/clientExtensions", set_trade_client_extensions, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, tradeSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxSetTradeClientExtensions_request>, setTradeClientExtensionsBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
   /// <summary>
   /// Set Dependent Orders
   /// </summary>
@@ -539,7 +539,7 @@ public:
   /// <param name="tradeSpecifier">Specifier for the Trade</param>
   /// <param name="setTradeDependentOrdersBody">Details of how to modify the Trade&#39;s dependent Orders.</param>
   /// <param name="acceptDatetimeFormat">Format of DateTime fields in the request and response. (optional, default to &quot;&quot;)</param>
-  API_CALL("PUT", "/accounts/{accountID}/trades/{tradeSpecifier}/orders", set_trade_dependent_orders, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, tradeSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxFxSetTradeDependentOrders_request>, setTradeDependentOrdersBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
+  API_CALL("PUT", "/accounts/{accountID}/trades/{tradeSpecifier}/orders", set_trade_dependent_orders, HEADER(oatpp::String, authorization, "authorization"), PATH(oatpp::String, accountID), PATH(oatpp::String, tradeSpecifier), BODY_DTO(oatpp::Object<fxmodel::FxSetTradeDependentOrders_request>, setTradeDependentOrdersBody), HEADER(oatpp::String, acceptDatetimeFormat, "acceptDatetimeFormat"))
   /// <summary>
   /// Price Stream
   /// </summary>
