@@ -36,8 +36,8 @@ class FxUnitsAvailable : public oatpp::DTO {
 
   DTO_INIT(FxUnitsAvailable, DTO /* Extends */)
 
-  DTO_FIELD(oatpp::Object<fxmodel::FxUnitsAvailableDetails>, default);
-  DTO_FIELD(oatpp::Boolean, defaultIsSet);
+  DTO_FIELD(oatpp::Object<fxmodel::FxUnitsAvailableDetails>, availableDefault, "default");
+  DTO_FIELD(oatpp::Boolean, availableDefaultIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxUnitsAvailableDetails>, reduceFirst);
   DTO_FIELD(oatpp::Boolean, reduceFirstIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxUnitsAvailableDetails>, reduceOnly);

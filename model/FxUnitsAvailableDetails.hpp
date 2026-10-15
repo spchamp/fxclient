@@ -35,16 +35,14 @@ class FxUnitsAvailableDetails : public oatpp::DTO {
 
   DTO_INIT(FxUnitsAvailableDetails, DTO /* Extends */)
 
-  DTO_FIELD(oatpp::String, long);
-  DTO_FIELD(oatpp::Boolean, longIsSet);
-  DTO_FIELD(oatpp::String, short);
-  DTO_FIELD(oatpp::Boolean, shortIsSet);
-
+  DTO_FIELD(oatpp::String, availableLong, "long");
+  DTO_FIELD(oatpp::Boolean, availableLongIsSet);
+  DTO_FIELD(oatpp::String, availableShort, "short");
+  DTO_FIELD(oatpp::Boolean, availableShortIsSet);
 };
 
 /* End DTO code-generation */
 #include OATPP_CODEGEN_END(DTO)
-
 
 } // namespace fxmodel
 

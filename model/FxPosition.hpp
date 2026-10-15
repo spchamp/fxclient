@@ -52,10 +52,10 @@ class FxPosition : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, commissionIsSet);
   DTO_FIELD(oatpp::String, guaranteedExecutionFees);
   DTO_FIELD(oatpp::Boolean, guaranteedExecutionFeesIsSet);
-  DTO_FIELD(oatpp::Object<fxmodel::FxPositionSide>, long);
-  DTO_FIELD(oatpp::Boolean, longIsSet);
-  DTO_FIELD(oatpp::Object<fxmodel::FxPositionSide>, short);
-  DTO_FIELD(oatpp::Boolean, shortIsSet);
+  DTO_FIELD(oatpp::Object<fxmodel::FxPositionSide>, sideLong, "long");
+  DTO_FIELD(oatpp::Boolean, sideLongIsSet);
+  DTO_FIELD(oatpp::Object<fxmodel::FxPositionSide>, sideShort, "short");
+  DTO_FIELD(oatpp::Boolean, sideShortIsSet);
 
 };
 
