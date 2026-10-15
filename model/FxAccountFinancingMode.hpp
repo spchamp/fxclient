@@ -31,7 +31,6 @@ public:
   static FxAccountFinancingMode NO_FINANCING(void) { return "NO_FINANCING"; }
   static FxAccountFinancingMode SECOND_BY_SECOND(void) { return "SECOND_BY_SECOND"; }
   static FxAccountFinancingMode DAILY(void) { return "DAILY"; }
-  static FxAccountFinancingMode 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

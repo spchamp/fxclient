@@ -49,7 +49,6 @@ public:
   static FxCandlestickGranularity D(void) { return "D"; }
   static FxCandlestickGranularity W(void) { return "W"; }
   static FxCandlestickGranularity M(void) { return "M"; }
-  static FxCandlestickGranularity 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

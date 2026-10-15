@@ -34,7 +34,6 @@ public:
   static FxCancellableOrderType TAKE_PROFIT(void) { return "TAKE_PROFIT"; }
   static FxCancellableOrderType STOP_LOSS(void) { return "STOP_LOSS"; }
   static FxCancellableOrderType TRAILING_STOP_LOSS(void) { return "TRAILING_STOP_LOSS"; }
-  static FxCancellableOrderType 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

@@ -75,7 +75,6 @@ public:
   static FxOrderCancelReason INSTRUMENT_ASK_HALTED(void) { return "INSTRUMENT_ASK_HALTED"; }
   static FxOrderCancelReason STOP_LOSS_ON_FILL_GUARANTEED_BID_HALTED(void) { return "STOP_LOSS_ON_FILL_GUARANTEED_BID_HALTED"; }
   static FxOrderCancelReason STOP_LOSS_ON_FILL_GUARANTEED_ASK_HALTED(void) { return "STOP_LOSS_ON_FILL_GUARANTEED_ASK_HALTED"; }
-  static FxOrderCancelReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

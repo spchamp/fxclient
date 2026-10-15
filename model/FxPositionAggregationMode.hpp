@@ -31,7 +31,6 @@ public:
   static FxPositionAggregationMode ABSOLUTE_SUM(void) { return "ABSOLUTE_SUM"; }
   static FxPositionAggregationMode MAXIMAL_SIDE(void) { return "MAXIMAL_SIDE"; }
   static FxPositionAggregationMode NET_SUM(void) { return "NET_SUM"; }
-  static FxPositionAggregationMode 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

@@ -39,7 +39,6 @@ public:
   static FxOrderFillReason MARKET_ORDER_POSITION_CLOSEOUT(void) { return "MARKET_ORDER_POSITION_CLOSEOUT"; }
   static FxOrderFillReason MARKET_ORDER_MARGIN_CLOSEOUT(void) { return "MARKET_ORDER_MARGIN_CLOSEOUT"; }
   static FxOrderFillReason MARKET_ORDER_DELAYED_TRADE_CLOSE(void) { return "MARKET_ORDER_DELAYED_TRADE_CLOSE"; }
-  static FxOrderFillReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

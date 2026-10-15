@@ -33,7 +33,6 @@ public:
   static FxTimeInForce GFD(void) { return "GFD"; }
   static FxTimeInForce FOK(void) { return "FOK"; }
   static FxTimeInForce IOC(void) { return "IOC"; }
-  static FxTimeInForce 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

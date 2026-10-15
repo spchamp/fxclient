@@ -31,7 +31,6 @@ public:
   static FxPriceStatus tradeable(void) { return "tradeable"; }
   static FxPriceStatus non-tradeable(void) { return "non-tradeable"; }
   static FxPriceStatus invalid(void) { return "invalid"; }
-  static FxPriceStatus 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

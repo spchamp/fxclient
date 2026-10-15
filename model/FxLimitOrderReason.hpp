@@ -30,7 +30,6 @@ class FxLimitOrderReasonValues {
 public:
   static FxLimitOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
   static FxLimitOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-  static FxLimitOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

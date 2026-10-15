@@ -33,7 +33,6 @@ public:
   static FxOrderStateFilter TRIGGERED(void) { return "TRIGGERED"; }
   static FxOrderStateFilter CANCELLED(void) { return "CANCELLED"; }
   static FxOrderStateFilter ALL(void) { return "ALL"; }
-  static FxOrderStateFilter 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

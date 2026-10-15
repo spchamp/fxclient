@@ -30,7 +30,6 @@ class FxAcceptDatetimeFormatValues {
 public:
   static FxAcceptDatetimeFormat UNIX(void) { return "UNIX"; }
   static FxAcceptDatetimeFormat RFC3339(void) { return "RFC3339"; }
-  static FxAcceptDatetimeFormat 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

@@ -31,7 +31,6 @@ public:
   static FxMarketOrderMarginCloseoutReason MARGIN_CHECK_VIOLATION(void) { return "MARGIN_CHECK_VIOLATION"; }
   static FxMarketOrderMarginCloseoutReason REGULATORY_MARGIN_CALL_VIOLATION(void) { return "REGULATORY_MARGIN_CALL_VIOLATION"; }
   static FxMarketOrderMarginCloseoutReason REGULATORY_MARGIN_CHECK_VIOLATION(void) { return "REGULATORY_MARGIN_CHECK_VIOLATION"; }
-  static FxMarketOrderMarginCloseoutReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

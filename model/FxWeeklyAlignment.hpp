@@ -35,7 +35,6 @@ public:
   static FxWeeklyAlignment Friday(void) { return "Friday"; }
   static FxWeeklyAlignment Saturday(void) { return "Saturday"; }
   static FxWeeklyAlignment Sunday(void) { return "Sunday"; }
-  static FxWeeklyAlignment 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

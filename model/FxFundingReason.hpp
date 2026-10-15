@@ -33,7 +33,6 @@ public:
   static FxFundingReason DIVISION_MIGRATION(void) { return "DIVISION_MIGRATION"; }
   static FxFundingReason SITE_MIGRATION(void) { return "SITE_MIGRATION"; }
   static FxFundingReason ADJUSTMENT(void) { return "ADJUSTMENT"; }
-  static FxFundingReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

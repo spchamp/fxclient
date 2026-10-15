@@ -31,7 +31,6 @@ public:
   static FxGuaranteedStopLossOrderMode DISABLED(void) { return "DISABLED"; }
   static FxGuaranteedStopLossOrderMode ALLOWED(void) { return "ALLOWED"; }
   static FxGuaranteedStopLossOrderMode REQUIRED(void) { return "REQUIRED"; }
-  static FxGuaranteedStopLossOrderMode 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

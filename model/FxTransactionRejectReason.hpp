@@ -171,7 +171,6 @@ public:
   static FxTransactionRejectReason CLIENT_EXTENSIONS_DATA_MISSING(void) { return "CLIENT_EXTENSIONS_DATA_MISSING"; }
   static FxTransactionRejectReason REPLACING_ORDER_INVALID(void) { return "REPLACING_ORDER_INVALID"; }
   static FxTransactionRejectReason REPLACING_TRADE_ID_INVALID(void) { return "REPLACING_TRADE_ID_INVALID"; }
-  static FxTransactionRejectReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

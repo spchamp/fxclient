@@ -30,7 +30,6 @@ class FxMarketIfTouchedOrderReasonValues {
 public:
   static FxMarketIfTouchedOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
   static FxMarketIfTouchedOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-  static FxMarketIfTouchedOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

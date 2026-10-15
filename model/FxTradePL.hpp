@@ -31,7 +31,6 @@ public:
   static FxTradePL POSITIVE(void) { return "POSITIVE"; }
   static FxTradePL NEGATIVE(void) { return "NEGATIVE"; }
   static FxTradePL ZERO(void) { return "ZERO"; }
-  static FxTradePL 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

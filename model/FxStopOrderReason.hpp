@@ -30,7 +30,6 @@ class FxStopOrderReasonValues {
 public:
   static FxStopOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
   static FxStopOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-  static FxStopOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

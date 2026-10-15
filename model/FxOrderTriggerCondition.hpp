@@ -33,7 +33,6 @@ public:
   static FxOrderTriggerCondition BID(void) { return "BID"; }
   static FxOrderTriggerCondition ASK(void) { return "ASK"; }
   static FxOrderTriggerCondition MID(void) { return "MID"; }
-  static FxOrderTriggerCondition 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

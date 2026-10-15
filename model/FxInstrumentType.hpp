@@ -31,7 +31,6 @@ public:
   static FxInstrumentType CURRENCY(void) { return "CURRENCY"; }
   static FxInstrumentType CFD(void) { return "CFD"; }
   static FxInstrumentType METAL(void) { return "METAL"; }
-  static FxInstrumentType 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

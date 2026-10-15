@@ -31,7 +31,6 @@ public:
   static FxTradeState OPEN(void) { return "OPEN"; }
   static FxTradeState CLOSED(void) { return "CLOSED"; }
   static FxTradeState CLOSE_WHEN_TRADEABLE(void) { return "CLOSE_WHEN_TRADEABLE"; }
-  static FxTradeState 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

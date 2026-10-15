@@ -31,7 +31,6 @@ public:
   static FxTakeProfitOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
   static FxTakeProfitOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
   static FxTakeProfitOrderReason ON_FILL(void) { return "ON_FILL"; }
-  static FxTakeProfitOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

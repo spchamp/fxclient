@@ -32,7 +32,6 @@ public:
   static FxOrderState FILLED(void) { return "FILLED"; }
   static FxOrderState TRIGGERED(void) { return "TRIGGERED"; }
   static FxOrderState CANCELLED(void) { return "CANCELLED"; }
-  static FxOrderState 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

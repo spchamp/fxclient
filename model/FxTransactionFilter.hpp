@@ -68,7 +68,6 @@ public:
   static FxTransactionFilter DELAYED_TRADE_CLOSURE(void) { return "DELAYED_TRADE_CLOSURE"; }
   static FxTransactionFilter DAILY_FINANCING(void) { return "DAILY_FINANCING"; }
   static FxTransactionFilter RESET_RESETTABLE_PL(void) { return "RESET_RESETTABLE_PL"; }
-  static FxTransactionFilter 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

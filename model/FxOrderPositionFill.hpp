@@ -32,7 +32,6 @@ public:
   static FxOrderPositionFill REDUCE_FIRST(void) { return "REDUCE_FIRST"; }
   static FxOrderPositionFill REDUCE_ONLY(void) { return "REDUCE_ONLY"; }
   static FxOrderPositionFill DEFAULT(void) { return "DEFAULT"; }
-  static FxOrderPositionFill 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

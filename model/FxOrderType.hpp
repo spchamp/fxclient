@@ -36,7 +36,6 @@ public:
   static FxOrderType STOP_LOSS(void) { return "STOP_LOSS"; }
   static FxOrderType TRAILING_STOP_LOSS(void) { return "TRAILING_STOP_LOSS"; }
   static FxOrderType FIXED_PRICE(void) { return "FIXED_PRICE"; }
-  static FxOrderType 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

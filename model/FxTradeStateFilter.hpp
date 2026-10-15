@@ -32,7 +32,6 @@ public:
   static FxTradeStateFilter CLOSED(void) { return "CLOSED"; }
   static FxTradeStateFilter CLOSE_WHEN_TRADEABLE(void) { return "CLOSE_WHEN_TRADEABLE"; }
   static FxTradeStateFilter ALL(void) { return "ALL"; }
-  static FxTradeStateFilter 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

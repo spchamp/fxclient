@@ -31,7 +31,6 @@ public:
   static FxStopLossOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
   static FxStopLossOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
   static FxStopLossOrderReason ON_FILL(void) { return "ON_FILL"; }
-  static FxStopLossOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

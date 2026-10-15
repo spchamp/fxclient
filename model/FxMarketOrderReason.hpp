@@ -33,7 +33,6 @@ public:
   static FxMarketOrderReason POSITION_CLOSEOUT(void) { return "POSITION_CLOSEOUT"; }
   static FxMarketOrderReason MARGIN_CLOSEOUT(void) { return "MARGIN_CLOSEOUT"; }
   static FxMarketOrderReason DELAYED_TRADE_CLOSE(void) { return "DELAYED_TRADE_CLOSE"; }
-  static FxMarketOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

@@ -30,7 +30,6 @@ class FxDirectionValues {
 public:
   static FxDirection LONG(void) { return "LONG"; }
   static FxDirection SHORT(void) { return "SHORT"; }
-  static FxDirection 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel

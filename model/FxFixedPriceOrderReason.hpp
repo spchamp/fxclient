@@ -29,7 +29,6 @@ typedef oatpp::String FxFixedPriceOrderReason;
 class FxFixedPriceOrderReasonValues {
 public:
   static FxFixedPriceOrderReason PLATFORM_ACCOUNT_MIGRATION(void) { return "PLATFORM_ACCOUNT_MIGRATION"; }
-  static FxFixedPriceOrderReason 11184809(void) { return "11184809"; }
 };
 
 } // namespace fxmodel
