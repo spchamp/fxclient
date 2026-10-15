@@ -29,7 +29,7 @@ typedef oatpp::String FxPriceStatus;
 class FxPriceStatusValues {
 public:
   static FxPriceStatus tradeable(void) { return "tradeable"; }
-  static FxPriceStatus non-tradeable(void) { return "non-tradeable"; }
+  static FxPriceStatus nonTradeable(void) { return "non-tradeable"; }
   static FxPriceStatus invalid(void) { return "invalid"; }
 };
 

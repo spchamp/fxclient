@@ -42,7 +42,7 @@ class FxListTransactions_200_response : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, toIsSet);
   DTO_FIELD(oatpp::Int32, pageSize);
   DTO_FIELD(oatpp::Boolean, pageSizeIsSet);
-  DTO_FIELD(oatpp::Vector<oatpp::Object<fxmodel::FxTransactionType>>, type);
+  DTO_FIELD(oatpp::Vector<fxmodel::FxTransactionType>, type);
   DTO_FIELD(oatpp::Boolean, typeIsSet);
   DTO_FIELD(oatpp::Int32, count);
   DTO_FIELD(oatpp::Boolean, countIsSet);
