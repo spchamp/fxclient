@@ -19,57 +19,62 @@
 #define FxTransactionFilter_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTransactionFilter;
-class FxTransactionFilterValues {
-public:
-  static FxTransactionFilter ORDER(void) { return "ORDER"; }
-  static FxTransactionFilter FUNDING(void) { return "FUNDING"; }
-  static FxTransactionFilter ADMIN(void) { return "ADMIN"; }
-  static FxTransactionFilter CREATE(void) { return "CREATE"; }
-  static FxTransactionFilter CLOSE(void) { return "CLOSE"; }
-  static FxTransactionFilter REOPEN(void) { return "REOPEN"; }
-  static FxTransactionFilter CLIENT_CONFIGURE(void) { return "CLIENT_CONFIGURE"; }
-  static FxTransactionFilter CLIENT_CONFIGURE_REJECT(void) { return "CLIENT_CONFIGURE_REJECT"; }
-  static FxTransactionFilter TRANSFER_FUNDS(void) { return "TRANSFER_FUNDS"; }
-  static FxTransactionFilter TRANSFER_FUNDS_REJECT(void) { return "TRANSFER_FUNDS_REJECT"; }
-  static FxTransactionFilter MARKET_ORDER(void) { return "MARKET_ORDER"; }
-  static FxTransactionFilter MARKET_ORDER_REJECT(void) { return "MARKET_ORDER_REJECT"; }
-  static FxTransactionFilter LIMIT_ORDER(void) { return "LIMIT_ORDER"; }
-  static FxTransactionFilter LIMIT_ORDER_REJECT(void) { return "LIMIT_ORDER_REJECT"; }
-  static FxTransactionFilter STOP_ORDER(void) { return "STOP_ORDER"; }
-  static FxTransactionFilter STOP_ORDER_REJECT(void) { return "STOP_ORDER_REJECT"; }
-  static FxTransactionFilter MARKET_IF_TOUCHED_ORDER(void) { return "MARKET_IF_TOUCHED_ORDER"; }
-  static FxTransactionFilter MARKET_IF_TOUCHED_ORDER_REJECT(void) { return "MARKET_IF_TOUCHED_ORDER_REJECT"; }
-  static FxTransactionFilter TAKE_PROFIT_ORDER(void) { return "TAKE_PROFIT_ORDER"; }
-  static FxTransactionFilter TAKE_PROFIT_ORDER_REJECT(void) { return "TAKE_PROFIT_ORDER_REJECT"; }
-  static FxTransactionFilter STOP_LOSS_ORDER(void) { return "STOP_LOSS_ORDER"; }
-  static FxTransactionFilter STOP_LOSS_ORDER_REJECT(void) { return "STOP_LOSS_ORDER_REJECT"; }
-  static FxTransactionFilter TRAILING_STOP_LOSS_ORDER(void) { return "TRAILING_STOP_LOSS_ORDER"; }
-  static FxTransactionFilter TRAILING_STOP_LOSS_ORDER_REJECT(void) { return "TRAILING_STOP_LOSS_ORDER_REJECT"; }
-  static FxTransactionFilter ONE_CANCELS_ALL_ORDER(void) { return "ONE_CANCELS_ALL_ORDER"; }
-  static FxTransactionFilter ONE_CANCELS_ALL_ORDER_REJECT(void) { return "ONE_CANCELS_ALL_ORDER_REJECT"; }
-  static FxTransactionFilter ONE_CANCELS_ALL_ORDER_TRIGGERED(void) { return "ONE_CANCELS_ALL_ORDER_TRIGGERED"; }
-  static FxTransactionFilter ORDER_FILL(void) { return "ORDER_FILL"; }
-  static FxTransactionFilter ORDER_CANCEL(void) { return "ORDER_CANCEL"; }
-  static FxTransactionFilter ORDER_CANCEL_REJECT(void) { return "ORDER_CANCEL_REJECT"; }
-  static FxTransactionFilter ORDER_CLIENT_EXTENSIONS_MODIFY(void) { return "ORDER_CLIENT_EXTENSIONS_MODIFY"; }
-  static FxTransactionFilter ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT(void) { return "ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT"; }
-  static FxTransactionFilter TRADE_CLIENT_EXTENSIONS_MODIFY(void) { return "TRADE_CLIENT_EXTENSIONS_MODIFY"; }
-  static FxTransactionFilter TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT(void) { return "TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT"; }
-  static FxTransactionFilter MARGIN_CALL_ENTER(void) { return "MARGIN_CALL_ENTER"; }
-  static FxTransactionFilter MARGIN_CALL_EXTEND(void) { return "MARGIN_CALL_EXTEND"; }
-  static FxTransactionFilter MARGIN_CALL_EXIT(void) { return "MARGIN_CALL_EXIT"; }
-  static FxTransactionFilter DELAYED_TRADE_CLOSURE(void) { return "DELAYED_TRADE_CLOSURE"; }
-  static FxTransactionFilter DAILY_FINANCING(void) { return "DAILY_FINANCING"; }
-  static FxTransactionFilter RESET_RESETTABLE_PL(void) { return "RESET_RESETTABLE_PL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TransactionFilter, std::uint_fast64_t,
+  VALUE(ORDER, (static_cast<std::uint_fast64_t>(1)<<0), "ORDER"),
+  VALUE(FUNDING, (static_cast<std::uint_fast64_t>(1)<<1), "FUNDING"),
+  VALUE(ADMIN, (static_cast<std::uint_fast64_t>(1)<<2), "ADMIN"),
+  VALUE(CREATE, (static_cast<std::uint_fast64_t>(1)<<3), "CREATE"),
+  VALUE(CLOSE, (static_cast<std::uint_fast64_t>(1)<<4), "CLOSE"),
+  VALUE(REOPEN, (static_cast<std::uint_fast64_t>(1)<<5), "REOPEN"),
+  VALUE(CLIENT_CONFIGURE, (static_cast<std::uint_fast64_t>(1)<<6), "CLIENT_CONFIGURE"),
+  VALUE(CLIENT_CONFIGURE_REJECT, (static_cast<std::uint_fast64_t>(1)<<7), "CLIENT_CONFIGURE_REJECT"),
+  VALUE(TRANSFER_FUNDS, (static_cast<std::uint_fast64_t>(1)<<8), "TRANSFER_FUNDS"),
+  VALUE(TRANSFER_FUNDS_REJECT, (static_cast<std::uint_fast64_t>(1)<<9), "TRANSFER_FUNDS_REJECT"),
+  VALUE(MARKET_ORDER, (static_cast<std::uint_fast64_t>(1)<<10), "MARKET_ORDER"),
+  VALUE(MARKET_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<11), "MARKET_ORDER_REJECT"),
+  VALUE(LIMIT_ORDER, (static_cast<std::uint_fast64_t>(1)<<12), "LIMIT_ORDER"),
+  VALUE(LIMIT_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<13), "LIMIT_ORDER_REJECT"),
+  VALUE(STOP_ORDER, (static_cast<std::uint_fast64_t>(1)<<14), "STOP_ORDER"),
+  VALUE(STOP_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<15), "STOP_ORDER_REJECT"),
+  VALUE(MARKET_IF_TOUCHED_ORDER, (static_cast<std::uint_fast64_t>(1)<<16), "MARKET_IF_TOUCHED_ORDER"),
+  VALUE(MARKET_IF_TOUCHED_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<17), "MARKET_IF_TOUCHED_ORDER_REJECT"),
+  VALUE(TAKE_PROFIT_ORDER, (static_cast<std::uint_fast64_t>(1)<<18), "TAKE_PROFIT_ORDER"),
+  VALUE(TAKE_PROFIT_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<19), "TAKE_PROFIT_ORDER_REJECT"),
+  VALUE(STOP_LOSS_ORDER, (static_cast<std::uint_fast64_t>(1)<<20), "STOP_LOSS_ORDER"),
+  VALUE(STOP_LOSS_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<21), "STOP_LOSS_ORDER_REJECT"),
+  VALUE(TRAILING_STOP_LOSS_ORDER, (static_cast<std::uint_fast64_t>(1)<<22), "TRAILING_STOP_LOSS_ORDER"),
+  VALUE(TRAILING_STOP_LOSS_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<23), "TRAILING_STOP_LOSS_ORDER_REJECT"),
+  VALUE(ONE_CANCELS_ALL_ORDER, (static_cast<std::uint_fast64_t>(1)<<24), "ONE_CANCELS_ALL_ORDER"),
+  VALUE(ONE_CANCELS_ALL_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<25), "ONE_CANCELS_ALL_ORDER_REJECT"),
+  VALUE(ONE_CANCELS_ALL_ORDER_TRIGGERED, (static_cast<std::uint_fast64_t>(1)<<26), "ONE_CANCELS_ALL_ORDER_TRIGGERED"),
+  VALUE(ORDER_FILL, (static_cast<std::uint_fast64_t>(1)<<27), "ORDER_FILL"),
+  VALUE(ORDER_CANCEL, (static_cast<std::uint_fast64_t>(1)<<28), "ORDER_CANCEL"),
+  VALUE(ORDER_CANCEL_REJECT, (static_cast<std::uint_fast64_t>(1)<<29), "ORDER_CANCEL_REJECT"),
+  VALUE(ORDER_CLIENT_EXTENSIONS_MODIFY, (static_cast<std::uint_fast64_t>(1)<<30), "ORDER_CLIENT_EXTENSIONS_MODIFY"),
+  VALUE(ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT, (static_cast<std::uint_fast64_t>(1)<<31), "ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT"),
+  VALUE(TRADE_CLIENT_EXTENSIONS_MODIFY, (static_cast<std::uint_fast64_t>(1)<<32), "TRADE_CLIENT_EXTENSIONS_MODIFY"),
+  VALUE(TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT, (static_cast<std::uint_fast64_t>(1)<<33), "TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT"),
+  VALUE(MARGIN_CALL_ENTER, (static_cast<std::uint_fast64_t>(1)<<34), "MARGIN_CALL_ENTER"),
+  VALUE(MARGIN_CALL_EXTEND, (static_cast<std::uint_fast64_t>(1)<<35), "MARGIN_CALL_EXTEND"),
+  VALUE(MARGIN_CALL_EXIT, (static_cast<std::uint_fast64_t>(1)<<36), "MARGIN_CALL_EXIT"),
+  VALUE(DELAYED_TRADE_CLOSURE, (static_cast<std::uint_fast64_t>(1)<<37), "DELAYED_TRADE_CLOSURE"),
+  VALUE(DAILY_FINANCING, (static_cast<std::uint_fast64_t>(1)<<38), "DAILY_FINANCING"),
+  VALUE(RESET_RESETTABLE_PL, (static_cast<std::uint_fast64_t>(1)<<39), "RESET_RESETTABLE_PL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTransactionFilter = oatpp::Enum<TransactionFilter>;
 } // namespace fxmodel
 
 #endif /* FxTransactionFilter_H_ */

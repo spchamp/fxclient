@@ -19,20 +19,25 @@
 #define FxTradePL_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTradePL;
-class FxTradePLValues {
-public:
-  static FxTradePL POSITIVE(void) { return "POSITIVE"; }
-  static FxTradePL NEGATIVE(void) { return "NEGATIVE"; }
-  static FxTradePL ZERO(void) { return "ZERO"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TradePL, std::uint_fast8_t,
+  VALUE(POSITIVE, (static_cast<std::uint_fast8_t>(1)<<0), "POSITIVE"),
+  VALUE(NEGATIVE, (static_cast<std::uint_fast8_t>(1)<<1), "NEGATIVE"),
+  VALUE(ZERO, (static_cast<std::uint_fast8_t>(1)<<2), "ZERO")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTradePL = oatpp::Enum<TradePL>;
 } // namespace fxmodel
 
 #endif /* FxTradePL_H_ */

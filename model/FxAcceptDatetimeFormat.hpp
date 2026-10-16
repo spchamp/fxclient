@@ -19,19 +19,24 @@
 #define FxAcceptDatetimeFormat_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxAcceptDatetimeFormat;
-class FxAcceptDatetimeFormatValues {
-public:
-  static FxAcceptDatetimeFormat UNIX(void) { return "UNIX"; }
-  static FxAcceptDatetimeFormat RFC3339(void) { return "RFC3339"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(AcceptDatetimeFormat, std::uint_fast8_t,
+  VALUE(UNIX, (static_cast<std::uint_fast8_t>(1)<<0), "UNIX"),
+  VALUE(RFC3339, (static_cast<std::uint_fast8_t>(1)<<1), "RFC3339")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxAcceptDatetimeFormat = oatpp::Enum<AcceptDatetimeFormat>;
 } // namespace fxmodel
 
 #endif /* FxAcceptDatetimeFormat_H_ */

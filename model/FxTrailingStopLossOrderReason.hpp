@@ -19,20 +19,25 @@
 #define FxTrailingStopLossOrderReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTrailingStopLossOrderReason;
-class FxTrailingStopLossOrderReasonValues {
-public:
-  static FxTrailingStopLossOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
-  static FxTrailingStopLossOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-  static FxTrailingStopLossOrderReason ON_FILL(void) { return "ON_FILL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TrailingStopLossOrderReason, std::uint_fast8_t,
+  VALUE(CLIENT_ORDER, (static_cast<std::uint_fast8_t>(1)<<0), "CLIENT_ORDER"),
+  VALUE(REPLACEMENT, (static_cast<std::uint_fast8_t>(1)<<1), "REPLACEMENT"),
+  VALUE(ON_FILL, (static_cast<std::uint_fast8_t>(1)<<2), "ON_FILL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTrailingStopLossOrderReason = oatpp::Enum<TrailingStopLossOrderReason>;
 } // namespace fxmodel
 
 #endif /* FxTrailingStopLossOrderReason_H_ */

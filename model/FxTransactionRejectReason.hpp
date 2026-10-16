@@ -19,160 +19,1039 @@
 #define FxTransactionRejectReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTransactionRejectReason;
-class FxTransactionRejectReasonValues {
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+enum class TransactionRejectReason : std::uint_fast32_t {
+  INTERNAL_SERVER_ERROR = 1,
+  INSTRUMENT_PRICE_UNKNOWN = 2,
+  ACCOUNT_NOT_ACTIVE = 3,
+  ACCOUNT_LOCKED = 4,
+  ACCOUNT_ORDER_CREATION_LOCKED = 5,
+  ACCOUNT_CONFIGURATION_LOCKED = 6,
+  ACCOUNT_DEPOSIT_LOCKED = 7,
+  ACCOUNT_WITHDRAWAL_LOCKED = 8,
+  ACCOUNT_ORDER_CANCEL_LOCKED = 9,
+  INSTRUMENT_NOT_TRADEABLE = 10,
+  PENDING_ORDERS_ALLOWED_EXCEEDED = 11,
+  ORDER_ID_UNSPECIFIED = 12,
+  ORDER_DOESNT_EXIST = 13,
+  ORDER_IDENTIFIER_INCONSISTENCY = 14,
+  TRADE_ID_UNSPECIFIED = 15,
+  TRADE_DOESNT_EXIST = 16,
+  TRADE_IDENTIFIER_INCONSISTENCY = 17,
+  INSUFFICIENT_MARGIN = 18,
+  INSTRUMENT_MISSING = 19,
+  INSTRUMENT_UNKNOWN = 20,
+  UNITS_MISSING = 21,
+  UNITS_INVALID = 22,
+  UNITS_PRECISION_EXCEEDED = 23,
+  UNITS_LIMIT_EXCEEDED = 24,
+  UNITS_MIMIMUM_NOT_MET = 25,
+  PRICE_MISSING = 26,
+  PRICE_INVALID = 27,
+  PRICE_PRECISION_EXCEEDED = 28,
+  PRICE_DISTANCE_MISSING = 29,
+  PRICE_DISTANCE_INVALID = 30,
+  PRICE_DISTANCE_PRECISION_EXCEEDED = 31,
+  PRICE_DISTANCE_MAXIMUM_EXCEEDED = 32,
+  PRICE_DISTANCE_MINIMUM_NOT_MET = 33,
+  TIME_IN_FORCE_MISSING = 34,
+  TIME_IN_FORCE_INVALID = 35,
+  TIME_IN_FORCE_GTD_TIMESTAMP_MISSING = 36,
+  TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST = 37,
+  PRICE_BOUND_INVALID = 38,
+  PRICE_BOUND_PRECISION_EXCEEDED = 39,
+  ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS = 40,
+  TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED = 41,
+  CLIENT_ORDER_ID_INVALID = 42,
+  CLIENT_ORDER_ID_ALREADY_EXISTS = 43,
+  CLIENT_ORDER_TAG_INVALID = 44,
+  CLIENT_ORDER_COMMENT_INVALID = 45,
+  CLIENT_TRADE_ID_INVALID = 46,
+  CLIENT_TRADE_ID_ALREADY_EXISTS = 47,
+  CLIENT_TRADE_TAG_INVALID = 48,
+  CLIENT_TRADE_COMMENT_INVALID = 49,
+  ORDER_FILL_POSITION_ACTION_MISSING = 50,
+  ORDER_FILL_POSITION_ACTION_INVALID = 51,
+  TRIGGER_CONDITION_MISSING = 52,
+  TRIGGER_CONDITION_INVALID = 53,
+  ORDER_PARTIAL_FILL_OPTION_MISSING = 54,
+  ORDER_PARTIAL_FILL_OPTION_INVALID = 55,
+  INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL = 56,
+  TAKE_PROFIT_ORDER_ALREADY_EXISTS = 57,
+  TAKE_PROFIT_ON_FILL_PRICE_MISSING = 58,
+  TAKE_PROFIT_ON_FILL_PRICE_INVALID = 59,
+  TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED = 60,
+  TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING = 61,
+  TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID = 62,
+  TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING = 63,
+  TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST = 64,
+  TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID = 65,
+  TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID = 66,
+  TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID = 67,
+  TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING = 68,
+  TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID = 69,
+  STOP_LOSS_ORDER_ALREADY_EXISTS = 70,
+  STOP_LOSS_ORDER_GUARANTEED_REQUIRED = 71,
+  STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD = 72,
+  STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED = 73,
+  STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION = 74,
+  STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION = 75,
+  STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED = 76,
+  STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET = 77,
+  STOP_LOSS_ORDER_NOT_CANCELABLE = 78,
+  STOP_LOSS_ORDER_NOT_REPLACEABLE = 79,
+  STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED = 80,
+  STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED = 81,
+  STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING = 82,
+  STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER = 83,
+  STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED = 84,
+  STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED = 85,
+  STOP_LOSS_ON_FILL_PRICE_MISSING = 86,
+  STOP_LOSS_ON_FILL_PRICE_INVALID = 87,
+  STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED = 88,
+  STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET = 89,
+  STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED = 90,
+  STOP_LOSS_ON_FILL_DISTANCE_INVALID = 91,
+  STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED = 92,
+  STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED = 93,
+  STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED = 94,
+  STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING = 95,
+  STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING = 96,
+  STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID = 97,
+  STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING = 98,
+  STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST = 99,
+  STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID = 100,
+  STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID = 101,
+  STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID = 102,
+  STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING = 103,
+  STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID = 104,
+  TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS = 105,
+  TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING = 106,
+  TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID = 107,
+  TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED = 108,
+  TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED = 109,
+  TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET = 110,
+  TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING = 111,
+  TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID = 112,
+  TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING = 113,
+  TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST = 114,
+  TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID = 115,
+  TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID = 116,
+  TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID = 117,
+  TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED = 118,
+  TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING = 119,
+  TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID = 120,
+  CLOSE_TRADE_TYPE_MISSING = 121,
+  CLOSE_TRADE_PARTIAL_UNITS_MISSING = 122,
+  CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE = 123,
+  CLOSEOUT_POSITION_DOESNT_EXIST = 124,
+  CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION = 125,
+  CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE = 126,
+  CLOSEOUT_POSITION_REJECT = 127,
+  CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING = 128,
+  MARKUP_GROUP_ID_INVALID = 129,
+  POSITION_AGGREGATION_MODE_INVALID = 130,
+  ADMIN_CONFIGURE_DATA_MISSING = 131,
+  MARGIN_RATE_INVALID = 132,
+  MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT = 133,
+  ALIAS_INVALID = 134,
+  CLIENT_CONFIGURE_DATA_MISSING = 135,
+  MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL = 136,
+  AMOUNT_INVALID = 137,
+  INSUFFICIENT_FUNDS = 138,
+  AMOUNT_MISSING = 139,
+  FUNDING_REASON_MISSING = 140,
+  CLIENT_EXTENSIONS_DATA_MISSING = 141,
+  REPLACING_ORDER_INVALID = 142,
+  REPLACING_TRADE_ID_INVALID = 143
+};
+class Z__OATPP_ENUM_META_TransactionRejectReason : public oatpp::data::mapping::type::EnumMeta<TransactionRejectReason> {
+private:
+    static bool init() { 
+        auto& info = *EnumMeta<TransactionRejectReason>::getInfo();
+        std::uint_fast32_t index = 0;
+        info.nameQualifier = "TransactionRejectReason";
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INTERNAL_SERVER_ERROR, static_cast<v_int32>(index++), "INTERNAL_SERVER_ERROR", nullptr};
+            info.byName.insert({"INTERNAL_SERVER_ERROR", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INTERNAL_SERVER_ERROR), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INSTRUMENT_PRICE_UNKNOWN, static_cast<v_int32>(index++), "INSTRUMENT_PRICE_UNKNOWN", nullptr};
+            info.byName.insert({"INSTRUMENT_PRICE_UNKNOWN", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INSTRUMENT_PRICE_UNKNOWN), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_NOT_ACTIVE, static_cast<v_int32>(index++), "ACCOUNT_NOT_ACTIVE", nullptr};
+            info.byName.insert({"ACCOUNT_NOT_ACTIVE", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_NOT_ACTIVE), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_LOCKED, static_cast<v_int32>(index++), "ACCOUNT_LOCKED", nullptr};
+            info.byName.insert({"ACCOUNT_LOCKED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_LOCKED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_ORDER_CREATION_LOCKED, static_cast<v_int32>(index++), "ACCOUNT_ORDER_CREATION_LOCKED", nullptr};
+            info.byName.insert({"ACCOUNT_ORDER_CREATION_LOCKED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_ORDER_CREATION_LOCKED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_CONFIGURATION_LOCKED, static_cast<v_int32>(index++), "ACCOUNT_CONFIGURATION_LOCKED", nullptr};
+            info.byName.insert({"ACCOUNT_CONFIGURATION_LOCKED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_CONFIGURATION_LOCKED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_DEPOSIT_LOCKED, static_cast<v_int32>(index++), "ACCOUNT_DEPOSIT_LOCKED", nullptr};
+            info.byName.insert({"ACCOUNT_DEPOSIT_LOCKED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_DEPOSIT_LOCKED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_WITHDRAWAL_LOCKED, static_cast<v_int32>(index++), "ACCOUNT_WITHDRAWAL_LOCKED", nullptr};
+            info.byName.insert({"ACCOUNT_WITHDRAWAL_LOCKED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_WITHDRAWAL_LOCKED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ACCOUNT_ORDER_CANCEL_LOCKED, static_cast<v_int32>(index++), "ACCOUNT_ORDER_CANCEL_LOCKED", nullptr};
+            info.byName.insert({"ACCOUNT_ORDER_CANCEL_LOCKED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ACCOUNT_ORDER_CANCEL_LOCKED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INSTRUMENT_NOT_TRADEABLE, static_cast<v_int32>(index++), "INSTRUMENT_NOT_TRADEABLE", nullptr};
+            info.byName.insert({"INSTRUMENT_NOT_TRADEABLE", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INSTRUMENT_NOT_TRADEABLE), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PENDING_ORDERS_ALLOWED_EXCEEDED, static_cast<v_int32>(index++), "PENDING_ORDERS_ALLOWED_EXCEEDED", nullptr};
+            info.byName.insert({"PENDING_ORDERS_ALLOWED_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PENDING_ORDERS_ALLOWED_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_ID_UNSPECIFIED, static_cast<v_int32>(index++), "ORDER_ID_UNSPECIFIED", nullptr};
+            info.byName.insert({"ORDER_ID_UNSPECIFIED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_ID_UNSPECIFIED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_DOESNT_EXIST, static_cast<v_int32>(index++), "ORDER_DOESNT_EXIST", nullptr};
+            info.byName.insert({"ORDER_DOESNT_EXIST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_DOESNT_EXIST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_IDENTIFIER_INCONSISTENCY, static_cast<v_int32>(index++), "ORDER_IDENTIFIER_INCONSISTENCY", nullptr};
+            info.byName.insert({"ORDER_IDENTIFIER_INCONSISTENCY", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_IDENTIFIER_INCONSISTENCY), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRADE_ID_UNSPECIFIED, static_cast<v_int32>(index++), "TRADE_ID_UNSPECIFIED", nullptr};
+            info.byName.insert({"TRADE_ID_UNSPECIFIED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRADE_ID_UNSPECIFIED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRADE_DOESNT_EXIST, static_cast<v_int32>(index++), "TRADE_DOESNT_EXIST", nullptr};
+            info.byName.insert({"TRADE_DOESNT_EXIST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRADE_DOESNT_EXIST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRADE_IDENTIFIER_INCONSISTENCY, static_cast<v_int32>(index++), "TRADE_IDENTIFIER_INCONSISTENCY", nullptr};
+            info.byName.insert({"TRADE_IDENTIFIER_INCONSISTENCY", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRADE_IDENTIFIER_INCONSISTENCY), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INSUFFICIENT_MARGIN, static_cast<v_int32>(index++), "INSUFFICIENT_MARGIN", nullptr};
+            info.byName.insert({"INSUFFICIENT_MARGIN", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INSUFFICIENT_MARGIN), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INSTRUMENT_MISSING, static_cast<v_int32>(index++), "INSTRUMENT_MISSING", nullptr};
+            info.byName.insert({"INSTRUMENT_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INSTRUMENT_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INSTRUMENT_UNKNOWN, static_cast<v_int32>(index++), "INSTRUMENT_UNKNOWN", nullptr};
+            info.byName.insert({"INSTRUMENT_UNKNOWN", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INSTRUMENT_UNKNOWN), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::UNITS_MISSING, static_cast<v_int32>(index++), "UNITS_MISSING", nullptr};
+            info.byName.insert({"UNITS_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::UNITS_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::UNITS_INVALID, static_cast<v_int32>(index++), "UNITS_INVALID", nullptr};
+            info.byName.insert({"UNITS_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::UNITS_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::UNITS_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "UNITS_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"UNITS_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::UNITS_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::UNITS_LIMIT_EXCEEDED, static_cast<v_int32>(index++), "UNITS_LIMIT_EXCEEDED", nullptr};
+            info.byName.insert({"UNITS_LIMIT_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::UNITS_LIMIT_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::UNITS_MIMIMUM_NOT_MET, static_cast<v_int32>(index++), "UNITS_MIMIMUM_NOT_MET", nullptr};
+            info.byName.insert({"UNITS_MIMIMUM_NOT_MET", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::UNITS_MIMIMUM_NOT_MET), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_MISSING, static_cast<v_int32>(index++), "PRICE_MISSING", nullptr};
+            info.byName.insert({"PRICE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_INVALID, static_cast<v_int32>(index++), "PRICE_INVALID", nullptr};
+            info.byName.insert({"PRICE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "PRICE_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"PRICE_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_DISTANCE_MISSING, static_cast<v_int32>(index++), "PRICE_DISTANCE_MISSING", nullptr};
+            info.byName.insert({"PRICE_DISTANCE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_DISTANCE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_DISTANCE_INVALID, static_cast<v_int32>(index++), "PRICE_DISTANCE_INVALID", nullptr};
+            info.byName.insert({"PRICE_DISTANCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_DISTANCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_DISTANCE_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "PRICE_DISTANCE_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"PRICE_DISTANCE_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_DISTANCE_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_DISTANCE_MAXIMUM_EXCEEDED, static_cast<v_int32>(index++), "PRICE_DISTANCE_MAXIMUM_EXCEEDED", nullptr};
+            info.byName.insert({"PRICE_DISTANCE_MAXIMUM_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_DISTANCE_MAXIMUM_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_DISTANCE_MINIMUM_NOT_MET, static_cast<v_int32>(index++), "PRICE_DISTANCE_MINIMUM_NOT_MET", nullptr};
+            info.byName.insert({"PRICE_DISTANCE_MINIMUM_NOT_MET", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_DISTANCE_MINIMUM_NOT_MET), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TIME_IN_FORCE_MISSING, static_cast<v_int32>(index++), "TIME_IN_FORCE_MISSING", nullptr};
+            info.byName.insert({"TIME_IN_FORCE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TIME_IN_FORCE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TIME_IN_FORCE_INVALID, static_cast<v_int32>(index++), "TIME_IN_FORCE_INVALID", nullptr};
+            info.byName.insert({"TIME_IN_FORCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TIME_IN_FORCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TIME_IN_FORCE_GTD_TIMESTAMP_MISSING, static_cast<v_int32>(index++), "TIME_IN_FORCE_GTD_TIMESTAMP_MISSING", nullptr};
+            info.byName.insert({"TIME_IN_FORCE_GTD_TIMESTAMP_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TIME_IN_FORCE_GTD_TIMESTAMP_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST, static_cast<v_int32>(index++), "TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST", nullptr};
+            info.byName.insert({"TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_BOUND_INVALID, static_cast<v_int32>(index++), "PRICE_BOUND_INVALID", nullptr};
+            info.byName.insert({"PRICE_BOUND_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_BOUND_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::PRICE_BOUND_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "PRICE_BOUND_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"PRICE_BOUND_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::PRICE_BOUND_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS, static_cast<v_int32>(index++), "ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS", nullptr};
+            info.byName.insert({"ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED, static_cast<v_int32>(index++), "TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED", nullptr};
+            info.byName.insert({"TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_ORDER_ID_INVALID, static_cast<v_int32>(index++), "CLIENT_ORDER_ID_INVALID", nullptr};
+            info.byName.insert({"CLIENT_ORDER_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_ORDER_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_ORDER_ID_ALREADY_EXISTS, static_cast<v_int32>(index++), "CLIENT_ORDER_ID_ALREADY_EXISTS", nullptr};
+            info.byName.insert({"CLIENT_ORDER_ID_ALREADY_EXISTS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_ORDER_ID_ALREADY_EXISTS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_ORDER_TAG_INVALID, static_cast<v_int32>(index++), "CLIENT_ORDER_TAG_INVALID", nullptr};
+            info.byName.insert({"CLIENT_ORDER_TAG_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_ORDER_TAG_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_ORDER_COMMENT_INVALID, static_cast<v_int32>(index++), "CLIENT_ORDER_COMMENT_INVALID", nullptr};
+            info.byName.insert({"CLIENT_ORDER_COMMENT_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_ORDER_COMMENT_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_TRADE_ID_INVALID, static_cast<v_int32>(index++), "CLIENT_TRADE_ID_INVALID", nullptr};
+            info.byName.insert({"CLIENT_TRADE_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_TRADE_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_TRADE_ID_ALREADY_EXISTS, static_cast<v_int32>(index++), "CLIENT_TRADE_ID_ALREADY_EXISTS", nullptr};
+            info.byName.insert({"CLIENT_TRADE_ID_ALREADY_EXISTS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_TRADE_ID_ALREADY_EXISTS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_TRADE_TAG_INVALID, static_cast<v_int32>(index++), "CLIENT_TRADE_TAG_INVALID", nullptr};
+            info.byName.insert({"CLIENT_TRADE_TAG_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_TRADE_TAG_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_TRADE_COMMENT_INVALID, static_cast<v_int32>(index++), "CLIENT_TRADE_COMMENT_INVALID", nullptr};
+            info.byName.insert({"CLIENT_TRADE_COMMENT_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_TRADE_COMMENT_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_FILL_POSITION_ACTION_MISSING, static_cast<v_int32>(index++), "ORDER_FILL_POSITION_ACTION_MISSING", nullptr};
+            info.byName.insert({"ORDER_FILL_POSITION_ACTION_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_FILL_POSITION_ACTION_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_FILL_POSITION_ACTION_INVALID, static_cast<v_int32>(index++), "ORDER_FILL_POSITION_ACTION_INVALID", nullptr};
+            info.byName.insert({"ORDER_FILL_POSITION_ACTION_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_FILL_POSITION_ACTION_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRIGGER_CONDITION_MISSING, static_cast<v_int32>(index++), "TRIGGER_CONDITION_MISSING", nullptr};
+            info.byName.insert({"TRIGGER_CONDITION_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRIGGER_CONDITION_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRIGGER_CONDITION_INVALID, static_cast<v_int32>(index++), "TRIGGER_CONDITION_INVALID", nullptr};
+            info.byName.insert({"TRIGGER_CONDITION_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRIGGER_CONDITION_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_PARTIAL_FILL_OPTION_MISSING, static_cast<v_int32>(index++), "ORDER_PARTIAL_FILL_OPTION_MISSING", nullptr};
+            info.byName.insert({"ORDER_PARTIAL_FILL_OPTION_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_PARTIAL_FILL_OPTION_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ORDER_PARTIAL_FILL_OPTION_INVALID, static_cast<v_int32>(index++), "ORDER_PARTIAL_FILL_OPTION_INVALID", nullptr};
+            info.byName.insert({"ORDER_PARTIAL_FILL_OPTION_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ORDER_PARTIAL_FILL_OPTION_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL, static_cast<v_int32>(index++), "INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL", nullptr};
+            info.byName.insert({"INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ORDER_ALREADY_EXISTS, static_cast<v_int32>(index++), "TAKE_PROFIT_ORDER_ALREADY_EXISTS", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ORDER_ALREADY_EXISTS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ORDER_ALREADY_EXISTS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_PRICE_MISSING, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_PRICE_MISSING", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_PRICE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_PRICE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_PRICE_INVALID, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_PRICE_INVALID", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_PRICE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_PRICE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID, static_cast<v_int32>(index++), "TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID", nullptr};
+            info.byName.insert({"TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_ALREADY_EXISTS, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_ALREADY_EXISTS", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_ALREADY_EXISTS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_ALREADY_EXISTS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_REQUIRED, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_REQUIRED", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_REQUIRED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_REQUIRED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_NOT_CANCELABLE, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_NOT_CANCELABLE", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_NOT_CANCELABLE", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_NOT_CANCELABLE), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_NOT_REPLACEABLE, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_NOT_REPLACEABLE", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_NOT_REPLACEABLE", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_NOT_REPLACEABLE), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING, static_cast<v_int32>(index++), "STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING", nullptr};
+            info.byName.insert({"STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_PRICE_MISSING, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_PRICE_MISSING", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_PRICE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_PRICE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_PRICE_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_PRICE_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_PRICE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_PRICE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_DISTANCE_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_DISTANCE_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_DISTANCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_DISTANCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID, static_cast<v_int32>(index++), "STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID", nullptr};
+            info.byName.insert({"STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID, static_cast<v_int32>(index++), "TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID", nullptr};
+            info.byName.insert({"TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSE_TRADE_TYPE_MISSING, static_cast<v_int32>(index++), "CLOSE_TRADE_TYPE_MISSING", nullptr};
+            info.byName.insert({"CLOSE_TRADE_TYPE_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSE_TRADE_TYPE_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSE_TRADE_PARTIAL_UNITS_MISSING, static_cast<v_int32>(index++), "CLOSE_TRADE_PARTIAL_UNITS_MISSING", nullptr};
+            info.byName.insert({"CLOSE_TRADE_PARTIAL_UNITS_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSE_TRADE_PARTIAL_UNITS_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE, static_cast<v_int32>(index++), "CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE", nullptr};
+            info.byName.insert({"CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSEOUT_POSITION_DOESNT_EXIST, static_cast<v_int32>(index++), "CLOSEOUT_POSITION_DOESNT_EXIST", nullptr};
+            info.byName.insert({"CLOSEOUT_POSITION_DOESNT_EXIST", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSEOUT_POSITION_DOESNT_EXIST), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION, static_cast<v_int32>(index++), "CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION", nullptr};
+            info.byName.insert({"CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE, static_cast<v_int32>(index++), "CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE", nullptr};
+            info.byName.insert({"CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSEOUT_POSITION_REJECT, static_cast<v_int32>(index++), "CLOSEOUT_POSITION_REJECT", nullptr};
+            info.byName.insert({"CLOSEOUT_POSITION_REJECT", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSEOUT_POSITION_REJECT), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING, static_cast<v_int32>(index++), "CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING", nullptr};
+            info.byName.insert({"CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::MARKUP_GROUP_ID_INVALID, static_cast<v_int32>(index++), "MARKUP_GROUP_ID_INVALID", nullptr};
+            info.byName.insert({"MARKUP_GROUP_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::MARKUP_GROUP_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::POSITION_AGGREGATION_MODE_INVALID, static_cast<v_int32>(index++), "POSITION_AGGREGATION_MODE_INVALID", nullptr};
+            info.byName.insert({"POSITION_AGGREGATION_MODE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::POSITION_AGGREGATION_MODE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ADMIN_CONFIGURE_DATA_MISSING, static_cast<v_int32>(index++), "ADMIN_CONFIGURE_DATA_MISSING", nullptr};
+            info.byName.insert({"ADMIN_CONFIGURE_DATA_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ADMIN_CONFIGURE_DATA_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::MARGIN_RATE_INVALID, static_cast<v_int32>(index++), "MARGIN_RATE_INVALID", nullptr};
+            info.byName.insert({"MARGIN_RATE_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::MARGIN_RATE_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT, static_cast<v_int32>(index++), "MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT", nullptr};
+            info.byName.insert({"MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::ALIAS_INVALID, static_cast<v_int32>(index++), "ALIAS_INVALID", nullptr};
+            info.byName.insert({"ALIAS_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::ALIAS_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_CONFIGURE_DATA_MISSING, static_cast<v_int32>(index++), "CLIENT_CONFIGURE_DATA_MISSING", nullptr};
+            info.byName.insert({"CLIENT_CONFIGURE_DATA_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_CONFIGURE_DATA_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL, static_cast<v_int32>(index++), "MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL", nullptr};
+            info.byName.insert({"MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::AMOUNT_INVALID, static_cast<v_int32>(index++), "AMOUNT_INVALID", nullptr};
+            info.byName.insert({"AMOUNT_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::AMOUNT_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::INSUFFICIENT_FUNDS, static_cast<v_int32>(index++), "INSUFFICIENT_FUNDS", nullptr};
+            info.byName.insert({"INSUFFICIENT_FUNDS", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::INSUFFICIENT_FUNDS), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::AMOUNT_MISSING, static_cast<v_int32>(index++), "AMOUNT_MISSING", nullptr};
+            info.byName.insert({"AMOUNT_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::AMOUNT_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::FUNDING_REASON_MISSING, static_cast<v_int32>(index++), "FUNDING_REASON_MISSING", nullptr};
+            info.byName.insert({"FUNDING_REASON_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::FUNDING_REASON_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::CLIENT_EXTENSIONS_DATA_MISSING, static_cast<v_int32>(index++), "CLIENT_EXTENSIONS_DATA_MISSING", nullptr};
+            info.byName.insert({"CLIENT_EXTENSIONS_DATA_MISSING", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::CLIENT_EXTENSIONS_DATA_MISSING), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::REPLACING_ORDER_INVALID, static_cast<v_int32>(index++), "REPLACING_ORDER_INVALID", nullptr};
+            info.byName.insert({"REPLACING_ORDER_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::REPLACING_ORDER_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        {
+            oatpp::data::mapping::type::EnumValueInfo<EnumType> entry = { EnumType::REPLACING_TRADE_ID_INVALID, static_cast<v_int32>(index++), "REPLACING_TRADE_ID_INVALID", nullptr};
+            info.byName.insert({"REPLACING_TRADE_ID_INVALID", entry});
+            info.byValue.insert({static_cast<std::uint_fast32_t>(EnumType::REPLACING_TRADE_ID_INVALID), entry});
+            info.byIndex.push_back(entry);
+        }
+        return true;
+    }
 public:
-  static FxTransactionRejectReason INTERNAL_SERVER_ERROR(void) { return "INTERNAL_SERVER_ERROR"; }
-  static FxTransactionRejectReason INSTRUMENT_PRICE_UNKNOWN(void) { return "INSTRUMENT_PRICE_UNKNOWN"; }
-  static FxTransactionRejectReason ACCOUNT_NOT_ACTIVE(void) { return "ACCOUNT_NOT_ACTIVE"; }
-  static FxTransactionRejectReason ACCOUNT_LOCKED(void) { return "ACCOUNT_LOCKED"; }
-  static FxTransactionRejectReason ACCOUNT_ORDER_CREATION_LOCKED(void) { return "ACCOUNT_ORDER_CREATION_LOCKED"; }
-  static FxTransactionRejectReason ACCOUNT_CONFIGURATION_LOCKED(void) { return "ACCOUNT_CONFIGURATION_LOCKED"; }
-  static FxTransactionRejectReason ACCOUNT_DEPOSIT_LOCKED(void) { return "ACCOUNT_DEPOSIT_LOCKED"; }
-  static FxTransactionRejectReason ACCOUNT_WITHDRAWAL_LOCKED(void) { return "ACCOUNT_WITHDRAWAL_LOCKED"; }
-  static FxTransactionRejectReason ACCOUNT_ORDER_CANCEL_LOCKED(void) { return "ACCOUNT_ORDER_CANCEL_LOCKED"; }
-  static FxTransactionRejectReason INSTRUMENT_NOT_TRADEABLE(void) { return "INSTRUMENT_NOT_TRADEABLE"; }
-  static FxTransactionRejectReason PENDING_ORDERS_ALLOWED_EXCEEDED(void) { return "PENDING_ORDERS_ALLOWED_EXCEEDED"; }
-  static FxTransactionRejectReason ORDER_ID_UNSPECIFIED(void) { return "ORDER_ID_UNSPECIFIED"; }
-  static FxTransactionRejectReason ORDER_DOESNT_EXIST(void) { return "ORDER_DOESNT_EXIST"; }
-  static FxTransactionRejectReason ORDER_IDENTIFIER_INCONSISTENCY(void) { return "ORDER_IDENTIFIER_INCONSISTENCY"; }
-  static FxTransactionRejectReason TRADE_ID_UNSPECIFIED(void) { return "TRADE_ID_UNSPECIFIED"; }
-  static FxTransactionRejectReason TRADE_DOESNT_EXIST(void) { return "TRADE_DOESNT_EXIST"; }
-  static FxTransactionRejectReason TRADE_IDENTIFIER_INCONSISTENCY(void) { return "TRADE_IDENTIFIER_INCONSISTENCY"; }
-  static FxTransactionRejectReason INSUFFICIENT_MARGIN(void) { return "INSUFFICIENT_MARGIN"; }
-  static FxTransactionRejectReason INSTRUMENT_MISSING(void) { return "INSTRUMENT_MISSING"; }
-  static FxTransactionRejectReason INSTRUMENT_UNKNOWN(void) { return "INSTRUMENT_UNKNOWN"; }
-  static FxTransactionRejectReason UNITS_MISSING(void) { return "UNITS_MISSING"; }
-  static FxTransactionRejectReason UNITS_INVALID(void) { return "UNITS_INVALID"; }
-  static FxTransactionRejectReason UNITS_PRECISION_EXCEEDED(void) { return "UNITS_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason UNITS_LIMIT_EXCEEDED(void) { return "UNITS_LIMIT_EXCEEDED"; }
-  static FxTransactionRejectReason UNITS_MIMIMUM_NOT_MET(void) { return "UNITS_MIMIMUM_NOT_MET"; }
-  static FxTransactionRejectReason PRICE_MISSING(void) { return "PRICE_MISSING"; }
-  static FxTransactionRejectReason PRICE_INVALID(void) { return "PRICE_INVALID"; }
-  static FxTransactionRejectReason PRICE_PRECISION_EXCEEDED(void) { return "PRICE_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason PRICE_DISTANCE_MISSING(void) { return "PRICE_DISTANCE_MISSING"; }
-  static FxTransactionRejectReason PRICE_DISTANCE_INVALID(void) { return "PRICE_DISTANCE_INVALID"; }
-  static FxTransactionRejectReason PRICE_DISTANCE_PRECISION_EXCEEDED(void) { return "PRICE_DISTANCE_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason PRICE_DISTANCE_MAXIMUM_EXCEEDED(void) { return "PRICE_DISTANCE_MAXIMUM_EXCEEDED"; }
-  static FxTransactionRejectReason PRICE_DISTANCE_MINIMUM_NOT_MET(void) { return "PRICE_DISTANCE_MINIMUM_NOT_MET"; }
-  static FxTransactionRejectReason TIME_IN_FORCE_MISSING(void) { return "TIME_IN_FORCE_MISSING"; }
-  static FxTransactionRejectReason TIME_IN_FORCE_INVALID(void) { return "TIME_IN_FORCE_INVALID"; }
-  static FxTransactionRejectReason TIME_IN_FORCE_GTD_TIMESTAMP_MISSING(void) { return "TIME_IN_FORCE_GTD_TIMESTAMP_MISSING"; }
-  static FxTransactionRejectReason TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST(void) { return "TIME_IN_FORCE_GTD_TIMESTAMP_IN_PAST"; }
-  static FxTransactionRejectReason PRICE_BOUND_INVALID(void) { return "PRICE_BOUND_INVALID"; }
-  static FxTransactionRejectReason PRICE_BOUND_PRECISION_EXCEEDED(void) { return "PRICE_BOUND_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS(void) { return "ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS"; }
-  static FxTransactionRejectReason TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED(void) { return "TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED"; }
-  static FxTransactionRejectReason CLIENT_ORDER_ID_INVALID(void) { return "CLIENT_ORDER_ID_INVALID"; }
-  static FxTransactionRejectReason CLIENT_ORDER_ID_ALREADY_EXISTS(void) { return "CLIENT_ORDER_ID_ALREADY_EXISTS"; }
-  static FxTransactionRejectReason CLIENT_ORDER_TAG_INVALID(void) { return "CLIENT_ORDER_TAG_INVALID"; }
-  static FxTransactionRejectReason CLIENT_ORDER_COMMENT_INVALID(void) { return "CLIENT_ORDER_COMMENT_INVALID"; }
-  static FxTransactionRejectReason CLIENT_TRADE_ID_INVALID(void) { return "CLIENT_TRADE_ID_INVALID"; }
-  static FxTransactionRejectReason CLIENT_TRADE_ID_ALREADY_EXISTS(void) { return "CLIENT_TRADE_ID_ALREADY_EXISTS"; }
-  static FxTransactionRejectReason CLIENT_TRADE_TAG_INVALID(void) { return "CLIENT_TRADE_TAG_INVALID"; }
-  static FxTransactionRejectReason CLIENT_TRADE_COMMENT_INVALID(void) { return "CLIENT_TRADE_COMMENT_INVALID"; }
-  static FxTransactionRejectReason ORDER_FILL_POSITION_ACTION_MISSING(void) { return "ORDER_FILL_POSITION_ACTION_MISSING"; }
-  static FxTransactionRejectReason ORDER_FILL_POSITION_ACTION_INVALID(void) { return "ORDER_FILL_POSITION_ACTION_INVALID"; }
-  static FxTransactionRejectReason TRIGGER_CONDITION_MISSING(void) { return "TRIGGER_CONDITION_MISSING"; }
-  static FxTransactionRejectReason TRIGGER_CONDITION_INVALID(void) { return "TRIGGER_CONDITION_INVALID"; }
-  static FxTransactionRejectReason ORDER_PARTIAL_FILL_OPTION_MISSING(void) { return "ORDER_PARTIAL_FILL_OPTION_MISSING"; }
-  static FxTransactionRejectReason ORDER_PARTIAL_FILL_OPTION_INVALID(void) { return "ORDER_PARTIAL_FILL_OPTION_INVALID"; }
-  static FxTransactionRejectReason INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL(void) { return "INVALID_REISSUE_IMMEDIATE_PARTIAL_FILL"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ORDER_ALREADY_EXISTS(void) { return "TAKE_PROFIT_ORDER_ALREADY_EXISTS"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_PRICE_MISSING(void) { return "TAKE_PROFIT_ON_FILL_PRICE_MISSING"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_PRICE_INVALID(void) { return "TAKE_PROFIT_ON_FILL_PRICE_INVALID"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED(void) { return "TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING(void) { return "TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID(void) { return "TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING(void) { return "TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_MISSING"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST(void) { return "TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID(void) { return "TAKE_PROFIT_ON_FILL_CLIENT_ORDER_ID_INVALID"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID(void) { return "TAKE_PROFIT_ON_FILL_CLIENT_ORDER_TAG_INVALID"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID(void) { return "TAKE_PROFIT_ON_FILL_CLIENT_ORDER_COMMENT_INVALID"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING(void) { return "TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_MISSING"; }
-  static FxTransactionRejectReason TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID(void) { return "TAKE_PROFIT_ON_FILL_TRIGGER_CONDITION_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_ALREADY_EXISTS(void) { return "STOP_LOSS_ORDER_ALREADY_EXISTS"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_REQUIRED(void) { return "STOP_LOSS_ORDER_GUARANTEED_REQUIRED"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD(void) { return "STOP_LOSS_ORDER_GUARANTEED_PRICE_WITHIN_SPREAD"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED(void) { return "STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION(void) { return "STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION(void) { return "STOP_LOSS_ORDER_GUARANTEED_HALTED_TIGHTEN_VIOLATION"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED(void) { return "STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET(void) { return "STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_NOT_CANCELABLE(void) { return "STOP_LOSS_ORDER_NOT_CANCELABLE"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_NOT_REPLACEABLE(void) { return "STOP_LOSS_ORDER_NOT_REPLACEABLE"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED(void) { return "STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED(void) { return "STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED"; }
-  static FxTransactionRejectReason STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING(void) { return "STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_MISSING"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER(void) { return "STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED(void) { return "STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED(void) { return "STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_PRICE_MISSING(void) { return "STOP_LOSS_ON_FILL_PRICE_MISSING"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_PRICE_INVALID(void) { return "STOP_LOSS_ON_FILL_PRICE_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED(void) { return "STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET(void) { return "STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED(void) { return "STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_DISTANCE_INVALID(void) { return "STOP_LOSS_ON_FILL_DISTANCE_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED(void) { return "STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED(void) { return "STOP_LOSS_ON_FILL_DISTANCE_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED(void) { return "STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_SPECIFIED"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING(void) { return "STOP_LOSS_ON_FILL_PRICE_AND_DISTANCE_BOTH_MISSING"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING(void) { return "STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID(void) { return "STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING(void) { return "STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST(void) { return "STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID(void) { return "STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID(void) { return "STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID(void) { return "STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING(void) { return "STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING"; }
-  static FxTransactionRejectReason STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID(void) { return "STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS(void) { return "TRAILING_STOP_LOSS_ORDER_ALREADY_EXISTS"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING(void) { return "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MISSING"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID(void) { return "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_INVALID"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED(void) { return "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_PRECISION_EXCEEDED"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED(void) { return "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MAXIMUM_EXCEEDED"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET(void) { return "TRAILING_STOP_LOSS_ON_FILL_PRICE_DISTANCE_MINIMUM_NOT_MET"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING(void) { return "TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_MISSING"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID(void) { return "TRAILING_STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING(void) { return "TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_MISSING"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST(void) { return "TRAILING_STOP_LOSS_ON_FILL_GTD_TIMESTAMP_IN_PAST"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID(void) { return "TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_ID_INVALID"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID(void) { return "TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_TAG_INVALID"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID(void) { return "TRAILING_STOP_LOSS_ON_FILL_CLIENT_ORDER_COMMENT_INVALID"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED(void) { return "TRAILING_STOP_LOSS_ORDERS_NOT_SUPPORTED"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING(void) { return "TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_MISSING"; }
-  static FxTransactionRejectReason TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID(void) { return "TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID"; }
-  static FxTransactionRejectReason CLOSE_TRADE_TYPE_MISSING(void) { return "CLOSE_TRADE_TYPE_MISSING"; }
-  static FxTransactionRejectReason CLOSE_TRADE_PARTIAL_UNITS_MISSING(void) { return "CLOSE_TRADE_PARTIAL_UNITS_MISSING"; }
-  static FxTransactionRejectReason CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE(void) { return "CLOSE_TRADE_UNITS_EXCEED_TRADE_SIZE"; }
-  static FxTransactionRejectReason CLOSEOUT_POSITION_DOESNT_EXIST(void) { return "CLOSEOUT_POSITION_DOESNT_EXIST"; }
-  static FxTransactionRejectReason CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION(void) { return "CLOSEOUT_POSITION_INCOMPLETE_SPECIFICATION"; }
-  static FxTransactionRejectReason CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE(void) { return "CLOSEOUT_POSITION_UNITS_EXCEED_POSITION_SIZE"; }
-  static FxTransactionRejectReason CLOSEOUT_POSITION_REJECT(void) { return "CLOSEOUT_POSITION_REJECT"; }
-  static FxTransactionRejectReason CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING(void) { return "CLOSEOUT_POSITION_PARTIAL_UNITS_MISSING"; }
-  static FxTransactionRejectReason MARKUP_GROUP_ID_INVALID(void) { return "MARKUP_GROUP_ID_INVALID"; }
-  static FxTransactionRejectReason POSITION_AGGREGATION_MODE_INVALID(void) { return "POSITION_AGGREGATION_MODE_INVALID"; }
-  static FxTransactionRejectReason ADMIN_CONFIGURE_DATA_MISSING(void) { return "ADMIN_CONFIGURE_DATA_MISSING"; }
-  static FxTransactionRejectReason MARGIN_RATE_INVALID(void) { return "MARGIN_RATE_INVALID"; }
-  static FxTransactionRejectReason MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT(void) { return "MARGIN_RATE_WOULD_TRIGGER_CLOSEOUT"; }
-  static FxTransactionRejectReason ALIAS_INVALID(void) { return "ALIAS_INVALID"; }
-  static FxTransactionRejectReason CLIENT_CONFIGURE_DATA_MISSING(void) { return "CLIENT_CONFIGURE_DATA_MISSING"; }
-  static FxTransactionRejectReason MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL(void) { return "MARGIN_RATE_WOULD_TRIGGER_MARGIN_CALL"; }
-  static FxTransactionRejectReason AMOUNT_INVALID(void) { return "AMOUNT_INVALID"; }
-  static FxTransactionRejectReason INSUFFICIENT_FUNDS(void) { return "INSUFFICIENT_FUNDS"; }
-  static FxTransactionRejectReason AMOUNT_MISSING(void) { return "AMOUNT_MISSING"; }
-  static FxTransactionRejectReason FUNDING_REASON_MISSING(void) { return "FUNDING_REASON_MISSING"; }
-  static FxTransactionRejectReason CLIENT_EXTENSIONS_DATA_MISSING(void) { return "CLIENT_EXTENSIONS_DATA_MISSING"; }
-  static FxTransactionRejectReason REPLACING_ORDER_INVALID(void) { return "REPLACING_ORDER_INVALID"; }
-  static FxTransactionRejectReason REPLACING_TRADE_ID_INVALID(void) { return "REPLACING_TRADE_ID_INVALID"; }
+static bool initializer() { 
+    static bool initialized = init(); return initialized; 
+}
 };
 
+static const bool Z__OATPP_ENUM_META_INITIALIZER_TransactionRejectReason = Z__OATPP_ENUM_META_TransactionRejectReason::initializer();
+
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTransactionRejectReason = oatpp::Enum<TransactionRejectReason>;
 } // namespace fxmodel
 
 #endif /* FxTransactionRejectReason_H_ */

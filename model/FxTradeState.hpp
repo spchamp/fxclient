@@ -19,20 +19,25 @@
 #define FxTradeState_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTradeState;
-class FxTradeStateValues {
-public:
-  static FxTradeState OPEN(void) { return "OPEN"; }
-  static FxTradeState CLOSED(void) { return "CLOSED"; }
-  static FxTradeState CLOSE_WHEN_TRADEABLE(void) { return "CLOSE_WHEN_TRADEABLE"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TradeState, std::uint_fast8_t,
+  VALUE(OPEN, (static_cast<std::uint_fast8_t>(1)<<0), "OPEN"),
+  VALUE(CLOSED, (static_cast<std::uint_fast8_t>(1)<<1), "CLOSED"),
+  VALUE(CLOSE_WHEN_TRADEABLE, (static_cast<std::uint_fast8_t>(1)<<2), "CLOSE_WHEN_TRADEABLE")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTradeState = oatpp::Enum<TradeState>;
 } // namespace fxmodel
 
 #endif /* FxTradeState_H_ */

@@ -19,22 +19,27 @@
 #define FxFundingReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxFundingReason;
-class FxFundingReasonValues {
-public:
-  static FxFundingReason CLIENT_FUNDING(void) { return "CLIENT_FUNDING"; }
-  static FxFundingReason ACCOUNT_TRANSFER(void) { return "ACCOUNT_TRANSFER"; }
-  static FxFundingReason DIVISION_MIGRATION(void) { return "DIVISION_MIGRATION"; }
-  static FxFundingReason SITE_MIGRATION(void) { return "SITE_MIGRATION"; }
-  static FxFundingReason ADJUSTMENT(void) { return "ADJUSTMENT"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(FundingReason, std::uint_fast8_t,
+  VALUE(CLIENT_FUNDING, (static_cast<std::uint_fast8_t>(1)<<0), "CLIENT_FUNDING"),
+  VALUE(ACCOUNT_TRANSFER, (static_cast<std::uint_fast8_t>(1)<<1), "ACCOUNT_TRANSFER"),
+  VALUE(DIVISION_MIGRATION, (static_cast<std::uint_fast8_t>(1)<<2), "DIVISION_MIGRATION"),
+  VALUE(SITE_MIGRATION, (static_cast<std::uint_fast8_t>(1)<<3), "SITE_MIGRATION"),
+  VALUE(ADJUSTMENT, (static_cast<std::uint_fast8_t>(1)<<4), "ADJUSTMENT")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxFundingReason = oatpp::Enum<FundingReason>;
 } // namespace fxmodel
 
 #endif /* FxFundingReason_H_ */

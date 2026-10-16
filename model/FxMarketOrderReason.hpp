@@ -19,22 +19,27 @@
 #define FxMarketOrderReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxMarketOrderReason;
-class FxMarketOrderReasonValues {
-public:
-  static FxMarketOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
-  static FxMarketOrderReason TRADE_CLOSE(void) { return "TRADE_CLOSE"; }
-  static FxMarketOrderReason POSITION_CLOSEOUT(void) { return "POSITION_CLOSEOUT"; }
-  static FxMarketOrderReason MARGIN_CLOSEOUT(void) { return "MARGIN_CLOSEOUT"; }
-  static FxMarketOrderReason DELAYED_TRADE_CLOSE(void) { return "DELAYED_TRADE_CLOSE"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(MarketOrderReason, std::uint_fast8_t,
+  VALUE(CLIENT_ORDER, (static_cast<std::uint_fast8_t>(1)<<0), "CLIENT_ORDER"),
+  VALUE(TRADE_CLOSE, (static_cast<std::uint_fast8_t>(1)<<1), "TRADE_CLOSE"),
+  VALUE(POSITION_CLOSEOUT, (static_cast<std::uint_fast8_t>(1)<<2), "POSITION_CLOSEOUT"),
+  VALUE(MARGIN_CLOSEOUT, (static_cast<std::uint_fast8_t>(1)<<3), "MARGIN_CLOSEOUT"),
+  VALUE(DELAYED_TRADE_CLOSE, (static_cast<std::uint_fast8_t>(1)<<4), "DELAYED_TRADE_CLOSE")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxMarketOrderReason = oatpp::Enum<MarketOrderReason>;
 } // namespace fxmodel
 
 #endif /* FxMarketOrderReason_H_ */

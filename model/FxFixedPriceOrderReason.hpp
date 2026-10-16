@@ -19,18 +19,23 @@
 #define FxFixedPriceOrderReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxFixedPriceOrderReason;
-class FxFixedPriceOrderReasonValues {
-public:
-  static FxFixedPriceOrderReason PLATFORM_ACCOUNT_MIGRATION(void) { return "PLATFORM_ACCOUNT_MIGRATION"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(FixedPriceOrderReason, std::uint_fast8_t,
+  VALUE(PLATFORM_ACCOUNT_MIGRATION, (static_cast<std::uint_fast8_t>(1)<<0), "PLATFORM_ACCOUNT_MIGRATION")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxFixedPriceOrderReason = oatpp::Enum<FixedPriceOrderReason>;
 } // namespace fxmodel
 
 #endif /* FxFixedPriceOrderReason_H_ */

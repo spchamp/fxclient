@@ -19,20 +19,25 @@
 #define FxMarketOrderMarginCloseoutReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxMarketOrderMarginCloseoutReason;
-class FxMarketOrderMarginCloseoutReasonValues {
-public:
-  static FxMarketOrderMarginCloseoutReason MARGIN_CHECK_VIOLATION(void) { return "MARGIN_CHECK_VIOLATION"; }
-  static FxMarketOrderMarginCloseoutReason REGULATORY_MARGIN_CALL_VIOLATION(void) { return "REGULATORY_MARGIN_CALL_VIOLATION"; }
-  static FxMarketOrderMarginCloseoutReason REGULATORY_MARGIN_CHECK_VIOLATION(void) { return "REGULATORY_MARGIN_CHECK_VIOLATION"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(MarketOrderMarginCloseoutReason, std::uint_fast8_t,
+  VALUE(MARGIN_CHECK_VIOLATION, (static_cast<std::uint_fast8_t>(1)<<0), "MARGIN_CHECK_VIOLATION"),
+  VALUE(REGULATORY_MARGIN_CALL_VIOLATION, (static_cast<std::uint_fast8_t>(1)<<1), "REGULATORY_MARGIN_CALL_VIOLATION"),
+  VALUE(REGULATORY_MARGIN_CHECK_VIOLATION, (static_cast<std::uint_fast8_t>(1)<<2), "REGULATORY_MARGIN_CHECK_VIOLATION")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxMarketOrderMarginCloseoutReason = oatpp::Enum<MarketOrderMarginCloseoutReason>;
 } // namespace fxmodel
 
 #endif /* FxMarketOrderMarginCloseoutReason_H_ */

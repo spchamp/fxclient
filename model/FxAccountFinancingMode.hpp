@@ -19,20 +19,25 @@
 #define FxAccountFinancingMode_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxAccountFinancingMode;
-class FxAccountFinancingModeValues {
-public:
-  static FxAccountFinancingMode NO_FINANCING(void) { return "NO_FINANCING"; }
-  static FxAccountFinancingMode SECOND_BY_SECOND(void) { return "SECOND_BY_SECOND"; }
-  static FxAccountFinancingMode DAILY(void) { return "DAILY"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(AccountFinancingMode, std::uint_fast8_t,
+  VALUE(NO_FINANCING, (static_cast<std::uint_fast8_t>(1)<<0), "NO_FINANCING"),
+  VALUE(SECOND_BY_SECOND, (static_cast<std::uint_fast8_t>(1)<<1), "SECOND_BY_SECOND"),
+  VALUE(DAILY, (static_cast<std::uint_fast8_t>(1)<<2), "DAILY")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxAccountFinancingMode = oatpp::Enum<AccountFinancingMode>;
 } // namespace fxmodel
 
 #endif /* FxAccountFinancingMode_H_ */

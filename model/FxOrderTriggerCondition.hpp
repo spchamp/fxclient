@@ -19,22 +19,27 @@
 #define FxOrderTriggerCondition_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxOrderTriggerCondition;
-class FxOrderTriggerConditionValues {
-public:
-  static FxOrderTriggerCondition DEFAULT(void) { return "DEFAULT"; }
-  static FxOrderTriggerCondition INVERSE(void) { return "INVERSE"; }
-  static FxOrderTriggerCondition BID(void) { return "BID"; }
-  static FxOrderTriggerCondition ASK(void) { return "ASK"; }
-  static FxOrderTriggerCondition MID(void) { return "MID"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(OrderTriggerCondition, std::uint_fast8_t,
+  VALUE(DEFAULT, (static_cast<std::uint_fast8_t>(1)<<0), "DEFAULT"),
+  VALUE(INVERSE, (static_cast<std::uint_fast8_t>(1)<<1), "INVERSE"),
+  VALUE(BID, (static_cast<std::uint_fast8_t>(1)<<2), "BID"),
+  VALUE(ASK, (static_cast<std::uint_fast8_t>(1)<<3), "ASK"),
+  VALUE(MID, (static_cast<std::uint_fast8_t>(1)<<4), "MID")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxOrderTriggerCondition = oatpp::Enum<OrderTriggerCondition>;
 } // namespace fxmodel
 
 #endif /* FxOrderTriggerCondition_H_ */

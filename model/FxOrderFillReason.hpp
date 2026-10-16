@@ -19,28 +19,33 @@
 #define FxOrderFillReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxOrderFillReason;
-class FxOrderFillReasonValues {
-public:
-  static FxOrderFillReason LIMIT_ORDER(void) { return "LIMIT_ORDER"; }
-  static FxOrderFillReason STOP_ORDER(void) { return "STOP_ORDER"; }
-  static FxOrderFillReason MARKET_IF_TOUCHED_ORDER(void) { return "MARKET_IF_TOUCHED_ORDER"; }
-  static FxOrderFillReason TAKE_PROFIT_ORDER(void) { return "TAKE_PROFIT_ORDER"; }
-  static FxOrderFillReason STOP_LOSS_ORDER(void) { return "STOP_LOSS_ORDER"; }
-  static FxOrderFillReason TRAILING_STOP_LOSS_ORDER(void) { return "TRAILING_STOP_LOSS_ORDER"; }
-  static FxOrderFillReason MARKET_ORDER(void) { return "MARKET_ORDER"; }
-  static FxOrderFillReason MARKET_ORDER_TRADE_CLOSE(void) { return "MARKET_ORDER_TRADE_CLOSE"; }
-  static FxOrderFillReason MARKET_ORDER_POSITION_CLOSEOUT(void) { return "MARKET_ORDER_POSITION_CLOSEOUT"; }
-  static FxOrderFillReason MARKET_ORDER_MARGIN_CLOSEOUT(void) { return "MARKET_ORDER_MARGIN_CLOSEOUT"; }
-  static FxOrderFillReason MARKET_ORDER_DELAYED_TRADE_CLOSE(void) { return "MARKET_ORDER_DELAYED_TRADE_CLOSE"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(OrderFillReason, std::uint_fast16_t,
+  VALUE(LIMIT_ORDER, (static_cast<std::uint_fast16_t>(1)<<0), "LIMIT_ORDER"),
+  VALUE(STOP_ORDER, (static_cast<std::uint_fast16_t>(1)<<1), "STOP_ORDER"),
+  VALUE(MARKET_IF_TOUCHED_ORDER, (static_cast<std::uint_fast16_t>(1)<<2), "MARKET_IF_TOUCHED_ORDER"),
+  VALUE(TAKE_PROFIT_ORDER, (static_cast<std::uint_fast16_t>(1)<<3), "TAKE_PROFIT_ORDER"),
+  VALUE(STOP_LOSS_ORDER, (static_cast<std::uint_fast16_t>(1)<<4), "STOP_LOSS_ORDER"),
+  VALUE(TRAILING_STOP_LOSS_ORDER, (static_cast<std::uint_fast16_t>(1)<<5), "TRAILING_STOP_LOSS_ORDER"),
+  VALUE(MARKET_ORDER, (static_cast<std::uint_fast16_t>(1)<<6), "MARKET_ORDER"),
+  VALUE(MARKET_ORDER_TRADE_CLOSE, (static_cast<std::uint_fast16_t>(1)<<7), "MARKET_ORDER_TRADE_CLOSE"),
+  VALUE(MARKET_ORDER_POSITION_CLOSEOUT, (static_cast<std::uint_fast16_t>(1)<<8), "MARKET_ORDER_POSITION_CLOSEOUT"),
+  VALUE(MARKET_ORDER_MARGIN_CLOSEOUT, (static_cast<std::uint_fast16_t>(1)<<9), "MARKET_ORDER_MARGIN_CLOSEOUT"),
+  VALUE(MARKET_ORDER_DELAYED_TRADE_CLOSE, (static_cast<std::uint_fast16_t>(1)<<10), "MARKET_ORDER_DELAYED_TRADE_CLOSE")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxOrderFillReason = oatpp::Enum<OrderFillReason>;
 } // namespace fxmodel
 
 #endif /* FxOrderFillReason_H_ */

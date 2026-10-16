@@ -19,25 +19,30 @@
 #define FxOrderType_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxOrderType;
-class FxOrderTypeValues {
-public:
-  static FxOrderType MARKET(void) { return "MARKET"; }
-  static FxOrderType LIMIT(void) { return "LIMIT"; }
-  static FxOrderType STOP(void) { return "STOP"; }
-  static FxOrderType MARKET_IF_TOUCHED(void) { return "MARKET_IF_TOUCHED"; }
-  static FxOrderType TAKE_PROFIT(void) { return "TAKE_PROFIT"; }
-  static FxOrderType STOP_LOSS(void) { return "STOP_LOSS"; }
-  static FxOrderType TRAILING_STOP_LOSS(void) { return "TRAILING_STOP_LOSS"; }
-  static FxOrderType FIXED_PRICE(void) { return "FIXED_PRICE"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(OrderType, std::uint_fast16_t,
+  VALUE(MARKET, (static_cast<std::uint_fast16_t>(1)<<0), "MARKET"),
+  VALUE(LIMIT, (static_cast<std::uint_fast16_t>(1)<<1), "LIMIT"),
+  VALUE(STOP, (static_cast<std::uint_fast16_t>(1)<<2), "STOP"),
+  VALUE(MARKET_IF_TOUCHED, (static_cast<std::uint_fast16_t>(1)<<3), "MARKET_IF_TOUCHED"),
+  VALUE(TAKE_PROFIT, (static_cast<std::uint_fast16_t>(1)<<4), "TAKE_PROFIT"),
+  VALUE(STOP_LOSS, (static_cast<std::uint_fast16_t>(1)<<5), "STOP_LOSS"),
+  VALUE(TRAILING_STOP_LOSS, (static_cast<std::uint_fast16_t>(1)<<6), "TRAILING_STOP_LOSS"),
+  VALUE(FIXED_PRICE, (static_cast<std::uint_fast16_t>(1)<<7), "FIXED_PRICE")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxOrderType = oatpp::Enum<OrderType>;
 } // namespace fxmodel
 
 #endif /* FxOrderType_H_ */

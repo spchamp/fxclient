@@ -19,21 +19,26 @@
 #define FxTradeStateFilter_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTradeStateFilter;
-class FxTradeStateFilterValues {
-public:
-  static FxTradeStateFilter OPEN(void) { return "OPEN"; }
-  static FxTradeStateFilter CLOSED(void) { return "CLOSED"; }
-  static FxTradeStateFilter CLOSE_WHEN_TRADEABLE(void) { return "CLOSE_WHEN_TRADEABLE"; }
-  static FxTradeStateFilter ALL(void) { return "ALL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TradeStateFilter, std::uint_fast8_t,
+  VALUE(OPEN, (static_cast<std::uint_fast8_t>(1)<<0), "OPEN"),
+  VALUE(CLOSED, (static_cast<std::uint_fast8_t>(1)<<1), "CLOSED"),
+  VALUE(CLOSE_WHEN_TRADEABLE, (static_cast<std::uint_fast8_t>(1)<<2), "CLOSE_WHEN_TRADEABLE"),
+  VALUE(ALL, (static_cast<std::uint_fast8_t>(1)<<3), "ALL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTradeStateFilter = oatpp::Enum<TradeStateFilter>;
 } // namespace fxmodel
 
 #endif /* FxTradeStateFilter_H_ */

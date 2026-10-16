@@ -19,21 +19,26 @@
 #define FxOrderPositionFill_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxOrderPositionFill;
-class FxOrderPositionFillValues {
-public:
-  static FxOrderPositionFill OPEN_ONLY(void) { return "OPEN_ONLY"; }
-  static FxOrderPositionFill REDUCE_FIRST(void) { return "REDUCE_FIRST"; }
-  static FxOrderPositionFill REDUCE_ONLY(void) { return "REDUCE_ONLY"; }
-  static FxOrderPositionFill DEFAULT(void) { return "DEFAULT"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(OrderPositionFill, std::uint_fast8_t,
+  VALUE(OPEN_ONLY, (static_cast<std::uint_fast8_t>(1)<<0), "OPEN_ONLY"),
+  VALUE(REDUCE_FIRST, (static_cast<std::uint_fast8_t>(1)<<1), "REDUCE_FIRST"),
+  VALUE(REDUCE_ONLY, (static_cast<std::uint_fast8_t>(1)<<2), "REDUCE_ONLY"),
+  VALUE(DEFAULT, (static_cast<std::uint_fast8_t>(1)<<3), "DEFAULT")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxOrderPositionFill = oatpp::Enum<OrderPositionFill>;
 } // namespace fxmodel
 
 #endif /* FxOrderPositionFill_H_ */

@@ -19,19 +19,24 @@
 #define FxMarketIfTouchedOrderReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxMarketIfTouchedOrderReason;
-class FxMarketIfTouchedOrderReasonValues {
-public:
-  static FxMarketIfTouchedOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
-  static FxMarketIfTouchedOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(MarketIfTouchedOrderReason, std::uint_fast8_t,
+  VALUE(CLIENT_ORDER, (static_cast<std::uint_fast8_t>(1)<<0), "CLIENT_ORDER"),
+  VALUE(REPLACEMENT, (static_cast<std::uint_fast8_t>(1)<<1), "REPLACEMENT")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxMarketIfTouchedOrderReason = oatpp::Enum<MarketIfTouchedOrderReason>;
 } // namespace fxmodel
 
 #endif /* FxMarketIfTouchedOrderReason_H_ */

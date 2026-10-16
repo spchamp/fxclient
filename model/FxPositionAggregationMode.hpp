@@ -19,20 +19,25 @@
 #define FxPositionAggregationMode_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxPositionAggregationMode;
-class FxPositionAggregationModeValues {
-public:
-  static FxPositionAggregationMode ABSOLUTE_SUM(void) { return "ABSOLUTE_SUM"; }
-  static FxPositionAggregationMode MAXIMAL_SIDE(void) { return "MAXIMAL_SIDE"; }
-  static FxPositionAggregationMode NET_SUM(void) { return "NET_SUM"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(PositionAggregationMode, std::uint_fast8_t,
+  VALUE(ABSOLUTE_SUM, (static_cast<std::uint_fast8_t>(1)<<0), "ABSOLUTE_SUM"),
+  VALUE(MAXIMAL_SIDE, (static_cast<std::uint_fast8_t>(1)<<1), "MAXIMAL_SIDE"),
+  VALUE(NET_SUM, (static_cast<std::uint_fast8_t>(1)<<2), "NET_SUM")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxPositionAggregationMode = oatpp::Enum<PositionAggregationMode>;
 } // namespace fxmodel
 
 #endif /* FxPositionAggregationMode_H_ */

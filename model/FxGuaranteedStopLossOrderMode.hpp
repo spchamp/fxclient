@@ -19,20 +19,25 @@
 #define FxGuaranteedStopLossOrderMode_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxGuaranteedStopLossOrderMode;
-class FxGuaranteedStopLossOrderModeValues {
-public:
-  static FxGuaranteedStopLossOrderMode DISABLED(void) { return "DISABLED"; }
-  static FxGuaranteedStopLossOrderMode ALLOWED(void) { return "ALLOWED"; }
-  static FxGuaranteedStopLossOrderMode REQUIRED(void) { return "REQUIRED"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(GuaranteedStopLossOrderMode, std::uint_fast8_t,
+  VALUE(DISABLED, (static_cast<std::uint_fast8_t>(1)<<0), "DISABLED"),
+  VALUE(ALLOWED, (static_cast<std::uint_fast8_t>(1)<<1), "ALLOWED"),
+  VALUE(REQUIRED, (static_cast<std::uint_fast8_t>(1)<<2), "REQUIRED")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxGuaranteedStopLossOrderMode = oatpp::Enum<GuaranteedStopLossOrderMode>;
 } // namespace fxmodel
 
 #endif /* FxGuaranteedStopLossOrderMode_H_ */

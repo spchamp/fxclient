@@ -19,19 +19,24 @@
 #define FxLimitOrderReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxLimitOrderReason;
-class FxLimitOrderReasonValues {
-public:
-  static FxLimitOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
-  static FxLimitOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(LimitOrderReason, std::uint_fast8_t,
+  VALUE(CLIENT_ORDER, (static_cast<std::uint_fast8_t>(1)<<0), "CLIENT_ORDER"),
+  VALUE(REPLACEMENT, (static_cast<std::uint_fast8_t>(1)<<1), "REPLACEMENT")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxLimitOrderReason = oatpp::Enum<LimitOrderReason>;
 } // namespace fxmodel
 
 #endif /* FxLimitOrderReason_H_ */

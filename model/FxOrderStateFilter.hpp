@@ -19,22 +19,27 @@
 #define FxOrderStateFilter_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxOrderStateFilter;
-class FxOrderStateFilterValues {
-public:
-  static FxOrderStateFilter PENDING(void) { return "PENDING"; }
-  static FxOrderStateFilter FILLED(void) { return "FILLED"; }
-  static FxOrderStateFilter TRIGGERED(void) { return "TRIGGERED"; }
-  static FxOrderStateFilter CANCELLED(void) { return "CANCELLED"; }
-  static FxOrderStateFilter ALL(void) { return "ALL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(OrderStateFilter, std::uint_fast8_t,
+  VALUE(PENDING, (static_cast<std::uint_fast8_t>(1)<<0), "PENDING"),
+  VALUE(FILLED, (static_cast<std::uint_fast8_t>(1)<<1), "FILLED"),
+  VALUE(TRIGGERED, (static_cast<std::uint_fast8_t>(1)<<2), "TRIGGERED"),
+  VALUE(CANCELLED, (static_cast<std::uint_fast8_t>(1)<<3), "CANCELLED"),
+  VALUE(ALL, (static_cast<std::uint_fast8_t>(1)<<4), "ALL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxOrderStateFilter = oatpp::Enum<OrderStateFilter>;
 } // namespace fxmodel
 
 #endif /* FxOrderStateFilter_H_ */

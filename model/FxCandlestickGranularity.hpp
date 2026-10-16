@@ -19,38 +19,43 @@
 #define FxCandlestickGranularity_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxCandlestickGranularity;
-class FxCandlestickGranularityValues {
-public:
-  static FxCandlestickGranularity S5(void) { return "S5"; }
-  static FxCandlestickGranularity S10(void) { return "S10"; }
-  static FxCandlestickGranularity S15(void) { return "S15"; }
-  static FxCandlestickGranularity S30(void) { return "S30"; }
-  static FxCandlestickGranularity M1(void) { return "M1"; }
-  static FxCandlestickGranularity M2(void) { return "M2"; }
-  static FxCandlestickGranularity M4(void) { return "M4"; }
-  static FxCandlestickGranularity M5(void) { return "M5"; }
-  static FxCandlestickGranularity M10(void) { return "M10"; }
-  static FxCandlestickGranularity M15(void) { return "M15"; }
-  static FxCandlestickGranularity M30(void) { return "M30"; }
-  static FxCandlestickGranularity H1(void) { return "H1"; }
-  static FxCandlestickGranularity H2(void) { return "H2"; }
-  static FxCandlestickGranularity H3(void) { return "H3"; }
-  static FxCandlestickGranularity H4(void) { return "H4"; }
-  static FxCandlestickGranularity H6(void) { return "H6"; }
-  static FxCandlestickGranularity H8(void) { return "H8"; }
-  static FxCandlestickGranularity H12(void) { return "H12"; }
-  static FxCandlestickGranularity D(void) { return "D"; }
-  static FxCandlestickGranularity W(void) { return "W"; }
-  static FxCandlestickGranularity M(void) { return "M"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(CandlestickGranularity, std::uint_fast32_t,
+  VALUE(S5, (static_cast<std::uint_fast32_t>(1)<<0), "S5"),
+  VALUE(S10, (static_cast<std::uint_fast32_t>(1)<<1), "S10"),
+  VALUE(S15, (static_cast<std::uint_fast32_t>(1)<<2), "S15"),
+  VALUE(S30, (static_cast<std::uint_fast32_t>(1)<<3), "S30"),
+  VALUE(M1, (static_cast<std::uint_fast32_t>(1)<<4), "M1"),
+  VALUE(M2, (static_cast<std::uint_fast32_t>(1)<<5), "M2"),
+  VALUE(M4, (static_cast<std::uint_fast32_t>(1)<<6), "M4"),
+  VALUE(M5, (static_cast<std::uint_fast32_t>(1)<<7), "M5"),
+  VALUE(M10, (static_cast<std::uint_fast32_t>(1)<<8), "M10"),
+  VALUE(M15, (static_cast<std::uint_fast32_t>(1)<<9), "M15"),
+  VALUE(M30, (static_cast<std::uint_fast32_t>(1)<<10), "M30"),
+  VALUE(H1, (static_cast<std::uint_fast32_t>(1)<<11), "H1"),
+  VALUE(H2, (static_cast<std::uint_fast32_t>(1)<<12), "H2"),
+  VALUE(H3, (static_cast<std::uint_fast32_t>(1)<<13), "H3"),
+  VALUE(H4, (static_cast<std::uint_fast32_t>(1)<<14), "H4"),
+  VALUE(H6, (static_cast<std::uint_fast32_t>(1)<<15), "H6"),
+  VALUE(H8, (static_cast<std::uint_fast32_t>(1)<<16), "H8"),
+  VALUE(H12, (static_cast<std::uint_fast32_t>(1)<<17), "H12"),
+  VALUE(D, (static_cast<std::uint_fast32_t>(1)<<18), "D"),
+  VALUE(W, (static_cast<std::uint_fast32_t>(1)<<19), "W"),
+  VALUE(M, (static_cast<std::uint_fast32_t>(1)<<20), "M")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxCandlestickGranularity = oatpp::Enum<CandlestickGranularity>;
 } // namespace fxmodel
 
 #endif /* FxCandlestickGranularity_H_ */

@@ -19,23 +19,28 @@
 #define FxCancellableOrderType_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxCancellableOrderType;
-class FxCancellableOrderTypeValues {
-public:
-  static FxCancellableOrderType LIMIT(void) { return "LIMIT"; }
-  static FxCancellableOrderType STOP(void) { return "STOP"; }
-  static FxCancellableOrderType MARKET_IF_TOUCHED(void) { return "MARKET_IF_TOUCHED"; }
-  static FxCancellableOrderType TAKE_PROFIT(void) { return "TAKE_PROFIT"; }
-  static FxCancellableOrderType STOP_LOSS(void) { return "STOP_LOSS"; }
-  static FxCancellableOrderType TRAILING_STOP_LOSS(void) { return "TRAILING_STOP_LOSS"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(CancellableOrderType, std::uint_fast8_t,
+  VALUE(LIMIT, (static_cast<std::uint_fast8_t>(1)<<0), "LIMIT"),
+  VALUE(STOP, (static_cast<std::uint_fast8_t>(1)<<1), "STOP"),
+  VALUE(MARKET_IF_TOUCHED, (static_cast<std::uint_fast8_t>(1)<<2), "MARKET_IF_TOUCHED"),
+  VALUE(TAKE_PROFIT, (static_cast<std::uint_fast8_t>(1)<<3), "TAKE_PROFIT"),
+  VALUE(STOP_LOSS, (static_cast<std::uint_fast8_t>(1)<<4), "STOP_LOSS"),
+  VALUE(TRAILING_STOP_LOSS, (static_cast<std::uint_fast8_t>(1)<<5), "TRAILING_STOP_LOSS")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxCancellableOrderType = oatpp::Enum<CancellableOrderType>;
 } // namespace fxmodel
 
 #endif /* FxCancellableOrderType_H_ */

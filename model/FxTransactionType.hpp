@@ -19,52 +19,57 @@
 #define FxTransactionType_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTransactionType;
-class FxTransactionTypeValues {
-public:
-  static FxTransactionType CREATE(void) { return "CREATE"; }
-  static FxTransactionType CLOSE(void) { return "CLOSE"; }
-  static FxTransactionType REOPEN(void) { return "REOPEN"; }
-  static FxTransactionType CLIENT_CONFIGURE(void) { return "CLIENT_CONFIGURE"; }
-  static FxTransactionType CLIENT_CONFIGURE_REJECT(void) { return "CLIENT_CONFIGURE_REJECT"; }
-  static FxTransactionType TRANSFER_FUNDS(void) { return "TRANSFER_FUNDS"; }
-  static FxTransactionType TRANSFER_FUNDS_REJECT(void) { return "TRANSFER_FUNDS_REJECT"; }
-  static FxTransactionType MARKET_ORDER(void) { return "MARKET_ORDER"; }
-  static FxTransactionType MARKET_ORDER_REJECT(void) { return "MARKET_ORDER_REJECT"; }
-  static FxTransactionType FIXED_PRICE_ORDER(void) { return "FIXED_PRICE_ORDER"; }
-  static FxTransactionType LIMIT_ORDER(void) { return "LIMIT_ORDER"; }
-  static FxTransactionType LIMIT_ORDER_REJECT(void) { return "LIMIT_ORDER_REJECT"; }
-  static FxTransactionType STOP_ORDER(void) { return "STOP_ORDER"; }
-  static FxTransactionType STOP_ORDER_REJECT(void) { return "STOP_ORDER_REJECT"; }
-  static FxTransactionType MARKET_IF_TOUCHED_ORDER(void) { return "MARKET_IF_TOUCHED_ORDER"; }
-  static FxTransactionType MARKET_IF_TOUCHED_ORDER_REJECT(void) { return "MARKET_IF_TOUCHED_ORDER_REJECT"; }
-  static FxTransactionType TAKE_PROFIT_ORDER(void) { return "TAKE_PROFIT_ORDER"; }
-  static FxTransactionType TAKE_PROFIT_ORDER_REJECT(void) { return "TAKE_PROFIT_ORDER_REJECT"; }
-  static FxTransactionType STOP_LOSS_ORDER(void) { return "STOP_LOSS_ORDER"; }
-  static FxTransactionType STOP_LOSS_ORDER_REJECT(void) { return "STOP_LOSS_ORDER_REJECT"; }
-  static FxTransactionType TRAILING_STOP_LOSS_ORDER(void) { return "TRAILING_STOP_LOSS_ORDER"; }
-  static FxTransactionType TRAILING_STOP_LOSS_ORDER_REJECT(void) { return "TRAILING_STOP_LOSS_ORDER_REJECT"; }
-  static FxTransactionType ORDER_FILL(void) { return "ORDER_FILL"; }
-  static FxTransactionType ORDER_CANCEL(void) { return "ORDER_CANCEL"; }
-  static FxTransactionType ORDER_CANCEL_REJECT(void) { return "ORDER_CANCEL_REJECT"; }
-  static FxTransactionType ORDER_CLIENT_EXTENSIONS_MODIFY(void) { return "ORDER_CLIENT_EXTENSIONS_MODIFY"; }
-  static FxTransactionType ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT(void) { return "ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT"; }
-  static FxTransactionType TRADE_CLIENT_EXTENSIONS_MODIFY(void) { return "TRADE_CLIENT_EXTENSIONS_MODIFY"; }
-  static FxTransactionType TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT(void) { return "TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT"; }
-  static FxTransactionType MARGIN_CALL_ENTER(void) { return "MARGIN_CALL_ENTER"; }
-  static FxTransactionType MARGIN_CALL_EXTEND(void) { return "MARGIN_CALL_EXTEND"; }
-  static FxTransactionType MARGIN_CALL_EXIT(void) { return "MARGIN_CALL_EXIT"; }
-  static FxTransactionType DELAYED_TRADE_CLOSURE(void) { return "DELAYED_TRADE_CLOSURE"; }
-  static FxTransactionType DAILY_FINANCING(void) { return "DAILY_FINANCING"; }
-  static FxTransactionType RESET_RESETTABLE_PL(void) { return "RESET_RESETTABLE_PL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TransactionType, std::uint_fast64_t,
+  VALUE(CREATE, (static_cast<std::uint_fast64_t>(1)<<0), "CREATE"),
+  VALUE(CLOSE, (static_cast<std::uint_fast64_t>(1)<<1), "CLOSE"),
+  VALUE(REOPEN, (static_cast<std::uint_fast64_t>(1)<<2), "REOPEN"),
+  VALUE(CLIENT_CONFIGURE, (static_cast<std::uint_fast64_t>(1)<<3), "CLIENT_CONFIGURE"),
+  VALUE(CLIENT_CONFIGURE_REJECT, (static_cast<std::uint_fast64_t>(1)<<4), "CLIENT_CONFIGURE_REJECT"),
+  VALUE(TRANSFER_FUNDS, (static_cast<std::uint_fast64_t>(1)<<5), "TRANSFER_FUNDS"),
+  VALUE(TRANSFER_FUNDS_REJECT, (static_cast<std::uint_fast64_t>(1)<<6), "TRANSFER_FUNDS_REJECT"),
+  VALUE(MARKET_ORDER, (static_cast<std::uint_fast64_t>(1)<<7), "MARKET_ORDER"),
+  VALUE(MARKET_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<8), "MARKET_ORDER_REJECT"),
+  VALUE(FIXED_PRICE_ORDER, (static_cast<std::uint_fast64_t>(1)<<9), "FIXED_PRICE_ORDER"),
+  VALUE(LIMIT_ORDER, (static_cast<std::uint_fast64_t>(1)<<10), "LIMIT_ORDER"),
+  VALUE(LIMIT_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<11), "LIMIT_ORDER_REJECT"),
+  VALUE(STOP_ORDER, (static_cast<std::uint_fast64_t>(1)<<12), "STOP_ORDER"),
+  VALUE(STOP_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<13), "STOP_ORDER_REJECT"),
+  VALUE(MARKET_IF_TOUCHED_ORDER, (static_cast<std::uint_fast64_t>(1)<<14), "MARKET_IF_TOUCHED_ORDER"),
+  VALUE(MARKET_IF_TOUCHED_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<15), "MARKET_IF_TOUCHED_ORDER_REJECT"),
+  VALUE(TAKE_PROFIT_ORDER, (static_cast<std::uint_fast64_t>(1)<<16), "TAKE_PROFIT_ORDER"),
+  VALUE(TAKE_PROFIT_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<17), "TAKE_PROFIT_ORDER_REJECT"),
+  VALUE(STOP_LOSS_ORDER, (static_cast<std::uint_fast64_t>(1)<<18), "STOP_LOSS_ORDER"),
+  VALUE(STOP_LOSS_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<19), "STOP_LOSS_ORDER_REJECT"),
+  VALUE(TRAILING_STOP_LOSS_ORDER, (static_cast<std::uint_fast64_t>(1)<<20), "TRAILING_STOP_LOSS_ORDER"),
+  VALUE(TRAILING_STOP_LOSS_ORDER_REJECT, (static_cast<std::uint_fast64_t>(1)<<21), "TRAILING_STOP_LOSS_ORDER_REJECT"),
+  VALUE(ORDER_FILL, (static_cast<std::uint_fast64_t>(1)<<22), "ORDER_FILL"),
+  VALUE(ORDER_CANCEL, (static_cast<std::uint_fast64_t>(1)<<23), "ORDER_CANCEL"),
+  VALUE(ORDER_CANCEL_REJECT, (static_cast<std::uint_fast64_t>(1)<<24), "ORDER_CANCEL_REJECT"),
+  VALUE(ORDER_CLIENT_EXTENSIONS_MODIFY, (static_cast<std::uint_fast64_t>(1)<<25), "ORDER_CLIENT_EXTENSIONS_MODIFY"),
+  VALUE(ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT, (static_cast<std::uint_fast64_t>(1)<<26), "ORDER_CLIENT_EXTENSIONS_MODIFY_REJECT"),
+  VALUE(TRADE_CLIENT_EXTENSIONS_MODIFY, (static_cast<std::uint_fast64_t>(1)<<27), "TRADE_CLIENT_EXTENSIONS_MODIFY"),
+  VALUE(TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT, (static_cast<std::uint_fast64_t>(1)<<28), "TRADE_CLIENT_EXTENSIONS_MODIFY_REJECT"),
+  VALUE(MARGIN_CALL_ENTER, (static_cast<std::uint_fast64_t>(1)<<29), "MARGIN_CALL_ENTER"),
+  VALUE(MARGIN_CALL_EXTEND, (static_cast<std::uint_fast64_t>(1)<<30), "MARGIN_CALL_EXTEND"),
+  VALUE(MARGIN_CALL_EXIT, (static_cast<std::uint_fast64_t>(1)<<31), "MARGIN_CALL_EXIT"),
+  VALUE(DELAYED_TRADE_CLOSURE, (static_cast<std::uint_fast64_t>(1)<<32), "DELAYED_TRADE_CLOSURE"),
+  VALUE(DAILY_FINANCING, (static_cast<std::uint_fast64_t>(1)<<33), "DAILY_FINANCING"),
+  VALUE(RESET_RESETTABLE_PL, (static_cast<std::uint_fast64_t>(1)<<34), "RESET_RESETTABLE_PL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTransactionType = oatpp::Enum<TransactionType>;
 } // namespace fxmodel
 
 #endif /* FxTransactionType_H_ */

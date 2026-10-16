@@ -19,24 +19,29 @@
 #define FxWeeklyAlignment_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxWeeklyAlignment;
-class FxWeeklyAlignmentValues {
-public:
-  static FxWeeklyAlignment Monday(void) { return "Monday"; }
-  static FxWeeklyAlignment Tuesday(void) { return "Tuesday"; }
-  static FxWeeklyAlignment Wednesday(void) { return "Wednesday"; }
-  static FxWeeklyAlignment Thursday(void) { return "Thursday"; }
-  static FxWeeklyAlignment Friday(void) { return "Friday"; }
-  static FxWeeklyAlignment Saturday(void) { return "Saturday"; }
-  static FxWeeklyAlignment Sunday(void) { return "Sunday"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(WeeklyAlignment, std::uint_fast16_t,
+  VALUE(Monday, (static_cast<std::uint_fast16_t>(1)<<0), "Monday"),
+  VALUE(Tuesday, (static_cast<std::uint_fast16_t>(1)<<1), "Tuesday"),
+  VALUE(Wednesday, (static_cast<std::uint_fast16_t>(1)<<2), "Wednesday"),
+  VALUE(Thursday, (static_cast<std::uint_fast16_t>(1)<<3), "Thursday"),
+  VALUE(Friday, (static_cast<std::uint_fast16_t>(1)<<4), "Friday"),
+  VALUE(Saturday, (static_cast<std::uint_fast16_t>(1)<<5), "Saturday"),
+  VALUE(Sunday, (static_cast<std::uint_fast16_t>(1)<<6), "Sunday")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxWeeklyAlignment = oatpp::Enum<WeeklyAlignment>;
 } // namespace fxmodel
 
 #endif /* FxWeeklyAlignment_H_ */

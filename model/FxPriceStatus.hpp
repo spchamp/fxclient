@@ -19,20 +19,25 @@
 #define FxPriceStatus_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxPriceStatus;
-class FxPriceStatusValues {
-public:
-  static FxPriceStatus tradeable(void) { return "tradeable"; }
-  static FxPriceStatus nonTradeable(void) { return "non-tradeable"; }
-  static FxPriceStatus invalid(void) { return "invalid"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(PriceStatus, std::uint_fast8_t,
+  VALUE(tradeable, (static_cast<std::uint_fast8_t>(1)<<0), "tradeable"),
+  VALUE(nonTradeable, (static_cast<std::uint_fast8_t>(1)<<1), "non-tradeable"),
+  VALUE(invalid, (static_cast<std::uint_fast8_t>(1)<<2), "invalid")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxPriceStatus = oatpp::Enum<PriceStatus>;
 } // namespace fxmodel
 
 #endif /* FxPriceStatus_H_ */

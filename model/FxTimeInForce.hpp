@@ -19,22 +19,27 @@
 #define FxTimeInForce_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTimeInForce;
-class FxTimeInForceValues {
-public:
-  static FxTimeInForce GTC(void) { return "GTC"; }
-  static FxTimeInForce GTD(void) { return "GTD"; }
-  static FxTimeInForce GFD(void) { return "GFD"; }
-  static FxTimeInForce FOK(void) { return "FOK"; }
-  static FxTimeInForce IOC(void) { return "IOC"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TimeInForce, std::uint_fast8_t,
+  VALUE(GTC, (static_cast<std::uint_fast8_t>(1)<<0), "GTC"),
+  VALUE(GTD, (static_cast<std::uint_fast8_t>(1)<<1), "GTD"),
+  VALUE(GFD, (static_cast<std::uint_fast8_t>(1)<<2), "GFD"),
+  VALUE(FOK, (static_cast<std::uint_fast8_t>(1)<<3), "FOK"),
+  VALUE(IOC, (static_cast<std::uint_fast8_t>(1)<<4), "IOC")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTimeInForce = oatpp::Enum<TimeInForce>;
 } // namespace fxmodel
 
 #endif /* FxTimeInForce_H_ */

@@ -19,19 +19,24 @@
 #define FxDirection_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxDirection;
-class FxDirectionValues {
-public:
-  static FxDirection LONG(void) { return "LONG"; }
-  static FxDirection SHORT(void) { return "SHORT"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(Direction, std::uint_fast8_t,
+  VALUE(LONG, (static_cast<std::uint_fast8_t>(1)<<0), "LONG"),
+  VALUE(SHORT, (static_cast<std::uint_fast8_t>(1)<<1), "SHORT")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxDirection = oatpp::Enum<Direction>;
 } // namespace fxmodel
 
 #endif /* FxDirection_H_ */

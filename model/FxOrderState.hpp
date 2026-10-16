@@ -19,21 +19,26 @@
 #define FxOrderState_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxOrderState;
-class FxOrderStateValues {
-public:
-  static FxOrderState PENDING(void) { return "PENDING"; }
-  static FxOrderState FILLED(void) { return "FILLED"; }
-  static FxOrderState TRIGGERED(void) { return "TRIGGERED"; }
-  static FxOrderState CANCELLED(void) { return "CANCELLED"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(OrderState, std::uint_fast8_t,
+  VALUE(PENDING, (static_cast<std::uint_fast8_t>(1)<<0), "PENDING"),
+  VALUE(FILLED, (static_cast<std::uint_fast8_t>(1)<<1), "FILLED"),
+  VALUE(TRIGGERED, (static_cast<std::uint_fast8_t>(1)<<2), "TRIGGERED"),
+  VALUE(CANCELLED, (static_cast<std::uint_fast8_t>(1)<<3), "CANCELLED")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxOrderState = oatpp::Enum<OrderState>;
 } // namespace fxmodel
 
 #endif /* FxOrderState_H_ */

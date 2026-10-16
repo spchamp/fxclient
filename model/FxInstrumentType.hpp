@@ -19,20 +19,25 @@
 #define FxInstrumentType_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxInstrumentType;
-class FxInstrumentTypeValues {
-public:
-  static FxInstrumentType CURRENCY(void) { return "CURRENCY"; }
-  static FxInstrumentType CFD(void) { return "CFD"; }
-  static FxInstrumentType METAL(void) { return "METAL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(InstrumentType, std::uint_fast8_t,
+  VALUE(CURRENCY, (static_cast<std::uint_fast8_t>(1)<<0), "CURRENCY"),
+  VALUE(CFD, (static_cast<std::uint_fast8_t>(1)<<1), "CFD"),
+  VALUE(METAL, (static_cast<std::uint_fast8_t>(1)<<2), "METAL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxInstrumentType = oatpp::Enum<InstrumentType>;
 } // namespace fxmodel
 
 #endif /* FxInstrumentType_H_ */

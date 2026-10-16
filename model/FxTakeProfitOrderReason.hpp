@@ -19,20 +19,25 @@
 #define FxTakeProfitOrderReason_H_
 
 
+#include <cstdint>
 #include "oatpp/core/Types.hpp"
+#include "oatpp/core/macro/codegen.hpp"
 
 namespace fxmodel
 {
 
 
-typedef oatpp::String FxTakeProfitOrderReason;
-class FxTakeProfitOrderReasonValues {
-public:
-  static FxTakeProfitOrderReason CLIENT_ORDER(void) { return "CLIENT_ORDER"; }
-  static FxTakeProfitOrderReason REPLACEMENT(void) { return "REPLACEMENT"; }
-  static FxTakeProfitOrderReason ON_FILL(void) { return "ON_FILL"; }
-};
+#include OATPP_CODEGEN_BEGIN(DTO)
 
+ENUM(TakeProfitOrderReason, std::uint_fast8_t,
+  VALUE(CLIENT_ORDER, (static_cast<std::uint_fast8_t>(1)<<0), "CLIENT_ORDER"),
+  VALUE(REPLACEMENT, (static_cast<std::uint_fast8_t>(1)<<1), "REPLACEMENT"),
+  VALUE(ON_FILL, (static_cast<std::uint_fast8_t>(1)<<2), "ON_FILL")
+)
+
+#include OATPP_CODEGEN_END(DTO)
+
+using FxTakeProfitOrderReason = oatpp::Enum<TakeProfitOrderReason>;
 } // namespace fxmodel
 
 #endif /* FxTakeProfitOrderReason_H_ */
