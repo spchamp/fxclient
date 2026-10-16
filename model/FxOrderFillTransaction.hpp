@@ -71,7 +71,7 @@ class FxOrderFillTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, fullVWAPIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientPrice>, fullPrice);
   DTO_FIELD(oatpp::Boolean, fullPriceIsSet);
-  DTO_FIELD(fxmodel::FxOrderFillReason, reason);
+  DTO_FIELD(fxmodel::FxOrderFillReason::AsString, reason);
   DTO_FIELD(oatpp::Boolean, reasonIsSet);
   DTO_FIELD(oatpp::String, pl);
   DTO_FIELD(oatpp::Boolean, plIsSet);

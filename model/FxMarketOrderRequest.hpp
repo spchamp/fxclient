@@ -50,7 +50,7 @@ class FxMarketOrderRequest : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, timeInForceIsSet);
   DTO_FIELD(oatpp::String, priceBound);
   DTO_FIELD(oatpp::Boolean, priceBoundIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);

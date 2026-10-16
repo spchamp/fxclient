@@ -67,7 +67,7 @@ class FxMarketOrderTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, timeInForceIsSet);
   DTO_FIELD(oatpp::String, priceBound);
   DTO_FIELD(oatpp::Boolean, priceBoundIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxMarketOrderTradeClose>, tradeClose);
   DTO_FIELD(oatpp::Boolean, tradeCloseIsSet);
@@ -79,7 +79,7 @@ class FxMarketOrderTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, marginCloseoutIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxMarketOrderDelayedTradeClose>, delayedTradeClose);
   DTO_FIELD(oatpp::Boolean, delayedTradeCloseIsSet);
-  DTO_FIELD(fxmodel::FxMarketOrderReason, reason);
+  DTO_FIELD(fxmodel::FxMarketOrderReason::AsString, reason);
   DTO_FIELD(oatpp::Boolean, reasonIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);

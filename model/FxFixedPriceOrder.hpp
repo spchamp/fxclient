@@ -45,7 +45,7 @@ class FxFixedPriceOrder : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, idIsSet);
   DTO_FIELD(oatpp::String, createTime);
   DTO_FIELD(oatpp::Boolean, createTimeIsSet);
-  DTO_FIELD(fxmodel::FxOrderState, state);
+  DTO_FIELD(fxmodel::FxOrderState::AsString, state);
   DTO_FIELD(oatpp::Boolean, stateIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);
@@ -57,7 +57,7 @@ class FxFixedPriceOrder : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, unitsIsSet);
   DTO_FIELD(oatpp::String, price);
   DTO_FIELD(oatpp::Boolean, priceIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
   DTO_FIELD(oatpp::String, tradeState);
   DTO_FIELD(oatpp::Boolean, tradeStateIsSet);

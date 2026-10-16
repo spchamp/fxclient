@@ -59,7 +59,7 @@ class FxOrderClientExtensionsModifyRejectTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, clientExtensionsModifyIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, tradeClientExtensionsModify);
   DTO_FIELD(oatpp::Boolean, tradeClientExtensionsModifyIsSet);
-  DTO_FIELD(fxmodel::FxTransactionRejectReason, rejectReason);
+  DTO_FIELD(fxmodel::FxTransactionRejectReason::AsString, rejectReason);
   DTO_FIELD(oatpp::Boolean, rejectReasonIsSet);
 
 };

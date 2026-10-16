@@ -60,7 +60,7 @@ class FxFixedPriceOrderTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, unitsIsSet);
   DTO_FIELD(oatpp::String, price);
   DTO_FIELD(oatpp::Boolean, priceIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
   DTO_FIELD(oatpp::String, tradeState);
   DTO_FIELD(oatpp::Boolean, tradeStateIsSet);

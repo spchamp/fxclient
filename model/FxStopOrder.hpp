@@ -47,7 +47,7 @@ class FxStopOrder : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, idIsSet);
   DTO_FIELD(oatpp::String, createTime);
   DTO_FIELD(oatpp::Boolean, createTimeIsSet);
-  DTO_FIELD(fxmodel::FxOrderState, state);
+  DTO_FIELD(fxmodel::FxOrderState::AsString, state);
   DTO_FIELD(oatpp::Boolean, stateIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);
@@ -61,13 +61,13 @@ class FxStopOrder : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, priceIsSet);
   DTO_FIELD(oatpp::String, priceBound);
   DTO_FIELD(oatpp::Boolean, priceBoundIsSet);
-  DTO_FIELD(fxmodel::FxTimeInForce, timeInForce);
+  DTO_FIELD(fxmodel::FxTimeInForce::AsString, timeInForce);
   DTO_FIELD(oatpp::Boolean, timeInForceIsSet);
   DTO_FIELD(oatpp::String, gtdTime);
   DTO_FIELD(oatpp::Boolean, gtdTimeIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
-  DTO_FIELD(fxmodel::FxOrderTriggerCondition, triggerCondition);
+  DTO_FIELD(fxmodel::FxOrderTriggerCondition::AsString, triggerCondition);
   DTO_FIELD(oatpp::Boolean, triggerConditionIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxTakeProfitDetails>, takeProfitOnFill);
   DTO_FIELD(oatpp::Boolean, takeProfitOnFillIsSet);

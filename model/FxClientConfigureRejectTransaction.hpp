@@ -54,7 +54,7 @@ class FxClientConfigureRejectTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, aliasIsSet);
   DTO_FIELD(oatpp::String, marginRate);
   DTO_FIELD(oatpp::Boolean, marginRateIsSet);
-  DTO_FIELD(fxmodel::FxTransactionRejectReason, rejectReason);
+  DTO_FIELD(fxmodel::FxTransactionRejectReason::AsString, rejectReason);
   DTO_FIELD(oatpp::Boolean, rejectReasonIsSet);
 
 };

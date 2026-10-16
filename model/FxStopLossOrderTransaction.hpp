@@ -64,13 +64,13 @@ class FxStopLossOrderTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, timeInForceIsSet);
   DTO_FIELD(oatpp::String, gtdTime);
   DTO_FIELD(oatpp::Boolean, gtdTimeIsSet);
-  DTO_FIELD(fxmodel::FxOrderTriggerCondition, triggerCondition);
+  DTO_FIELD(fxmodel::FxOrderTriggerCondition::AsString, triggerCondition);
   DTO_FIELD(oatpp::Boolean, triggerConditionIsSet);
   DTO_FIELD(oatpp::Boolean, guaranteed);
   DTO_FIELD(oatpp::Boolean, guaranteedIsSet);
   DTO_FIELD(oatpp::String, guaranteedExecutionPremium);
   DTO_FIELD(oatpp::Boolean, guaranteedExecutionPremiumIsSet);
-  DTO_FIELD(fxmodel::FxStopLossOrderReason, reason);
+  DTO_FIELD(fxmodel::FxStopLossOrderReason::AsString, reason);
   DTO_FIELD(oatpp::Boolean, reasonIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);

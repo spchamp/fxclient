@@ -55,9 +55,9 @@ class FxMarketIfTouchedOrderRequest : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, timeInForceIsSet);
   DTO_FIELD(oatpp::String, gtdTime);
   DTO_FIELD(oatpp::Boolean, gtdTimeIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
-  DTO_FIELD(fxmodel::FxOrderTriggerCondition, triggerCondition);
+  DTO_FIELD(fxmodel::FxOrderTriggerCondition::AsString, triggerCondition);
   DTO_FIELD(oatpp::Boolean, triggerConditionIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);

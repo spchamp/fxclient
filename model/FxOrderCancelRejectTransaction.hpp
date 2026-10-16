@@ -54,7 +54,7 @@ class FxOrderCancelRejectTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, orderIDIsSet);
   DTO_FIELD(oatpp::String, clientOrderID);
   DTO_FIELD(oatpp::Boolean, clientOrderIDIsSet);
-  DTO_FIELD(fxmodel::FxTransactionRejectReason, rejectReason);
+  DTO_FIELD(fxmodel::FxTransactionRejectReason::AsString, rejectReason);
   DTO_FIELD(oatpp::Boolean, rejectReasonIsSet);
 
 };

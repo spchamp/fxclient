@@ -39,7 +39,7 @@ class FxGetInstrumentCandles_200_response : public oatpp::DTO {
 
   DTO_FIELD(oatpp::String, instrument);
   DTO_FIELD(oatpp::Boolean, instrumentIsSet);
-  DTO_FIELD(fxmodel::FxCandlestickGranularity, granularity);
+  DTO_FIELD(fxmodel::FxCandlestickGranularity::AsString, granularity);
   DTO_FIELD(oatpp::Boolean, granularityIsSet);
   DTO_FIELD(oatpp::Vector<oatpp::Object<fxmodel::FxCandlestick>>, candles);
   DTO_FIELD(oatpp::Boolean, candlesIsSet);

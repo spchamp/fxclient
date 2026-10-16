@@ -52,7 +52,7 @@ class FxTransferFundsTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, typeIsSet);
   DTO_FIELD(oatpp::String, amount);
   DTO_FIELD(oatpp::Boolean, amountIsSet);
-  DTO_FIELD(fxmodel::FxFundingReason, fundingReason);
+  DTO_FIELD(fxmodel::FxFundingReason::AsString, fundingReason);
   DTO_FIELD(oatpp::Boolean, fundingReasonIsSet);
   DTO_FIELD(oatpp::String, comment);
   DTO_FIELD(oatpp::Boolean, commentIsSet);

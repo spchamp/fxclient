@@ -45,7 +45,7 @@ class FxTradeSummary : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, priceIsSet);
   DTO_FIELD(oatpp::String, openTime);
   DTO_FIELD(oatpp::Boolean, openTimeIsSet);
-  DTO_FIELD(fxmodel::FxTradeState, state);
+  DTO_FIELD(fxmodel::FxTradeState::AsString, state);
   DTO_FIELD(oatpp::Boolean, stateIsSet);
   DTO_FIELD(oatpp::String, initialUnits);
   DTO_FIELD(oatpp::Boolean, initialUnitsIsSet);

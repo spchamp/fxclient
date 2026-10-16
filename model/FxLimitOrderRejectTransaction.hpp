@@ -64,15 +64,15 @@ class FxLimitOrderRejectTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, unitsIsSet);
   DTO_FIELD(oatpp::String, price);
   DTO_FIELD(oatpp::Boolean, priceIsSet);
-  DTO_FIELD(fxmodel::FxTimeInForce, timeInForce);
+  DTO_FIELD(fxmodel::FxTimeInForce::AsString, timeInForce);
   DTO_FIELD(oatpp::Boolean, timeInForceIsSet);
   DTO_FIELD(oatpp::String, gtdTime);
   DTO_FIELD(oatpp::Boolean, gtdTimeIsSet);
-  DTO_FIELD(fxmodel::FxOrderPositionFill, positionFill);
+  DTO_FIELD(fxmodel::FxOrderPositionFill::AsString, positionFill);
   DTO_FIELD(oatpp::Boolean, positionFillIsSet);
-  DTO_FIELD(fxmodel::FxOrderTriggerCondition, triggerCondition);
+  DTO_FIELD(fxmodel::FxOrderTriggerCondition::AsString, triggerCondition);
   DTO_FIELD(oatpp::Boolean, triggerConditionIsSet);
-  DTO_FIELD(fxmodel::FxLimitOrderReason, reason);
+  DTO_FIELD(fxmodel::FxLimitOrderReason::AsString, reason);
   DTO_FIELD(oatpp::Boolean, reasonIsSet);
   DTO_FIELD(oatpp::Object<fxmodel::FxClientExtensions>, clientExtensions);
   DTO_FIELD(oatpp::Boolean, clientExtensionsIsSet);
@@ -86,7 +86,7 @@ class FxLimitOrderRejectTransaction : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, tradeClientExtensionsIsSet);
   DTO_FIELD(oatpp::String, intendedReplacesOrderID);
   DTO_FIELD(oatpp::Boolean, intendedReplacesOrderIDIsSet);
-  DTO_FIELD(fxmodel::FxTransactionRejectReason, rejectReason);
+  DTO_FIELD(fxmodel::FxTransactionRejectReason::AsString, rejectReason);
   DTO_FIELD(oatpp::Boolean, rejectReasonIsSet);
 
 };

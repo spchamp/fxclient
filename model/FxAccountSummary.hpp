@@ -48,7 +48,7 @@ class FxAccountSummary : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, createdByUserIDIsSet);
   DTO_FIELD(oatpp::String, createdTime);
   DTO_FIELD(oatpp::Boolean, createdTimeIsSet);
-  DTO_FIELD(fxmodel::FxGuaranteedStopLossOrderMode, guaranteedStopLossOrderMode);
+  DTO_FIELD(fxmodel::FxGuaranteedStopLossOrderMode::AsString, guaranteedStopLossOrderMode);
   DTO_FIELD(oatpp::Boolean, guaranteedStopLossOrderModeIsSet);
   DTO_FIELD(oatpp::String, pl);
   DTO_FIELD(oatpp::Boolean, plIsSet);

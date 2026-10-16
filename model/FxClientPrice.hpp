@@ -45,7 +45,7 @@ class FxClientPrice : public oatpp::DTO {
   DTO_FIELD(oatpp::Boolean, instrumentIsSet);
   DTO_FIELD(oatpp::String, time);
   DTO_FIELD(oatpp::Boolean, timeIsSet);
-  DTO_FIELD(fxmodel::FxPriceStatus, status);
+  DTO_FIELD(fxmodel::FxPriceStatus::AsString, status);
   DTO_FIELD(oatpp::Boolean, statusIsSet);
   DTO_FIELD(oatpp::Boolean, tradeable);
   DTO_FIELD(oatpp::Boolean, tradeableIsSet);
