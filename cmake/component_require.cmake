@@ -10,7 +10,7 @@ include(FetchContent)
 macro(component_require _name)
     ## this should generally be defined as a macro, when calling find_package
 
-    set(_pkg_opts CONFIG QUIET GLOBAL)
+    set(_pkg_opts CONFIG GLOBAL)
     set(_options ${_pkg_opts})
     set(_single_value VERSION NOT_FOUND_MESSAGE)
     set(_multi_value COMPONENTS)
