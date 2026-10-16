@@ -1,9 +1,12 @@
 ## fxclient CMake build
 
-## CMake version for CACHE{VAR} syntax
-cmake_minimum_required(VERSION 4.2)
+## CMake version for SPDX_LICENSE in project()
+cmake_minimum_required(VERSION 4.3)
 
-project(fxclient LANGUAGES CXX)
+project(fxclient
+  LANGUAGES CXX
+  SPDX_LICENSE BSD-2-Clause
+)
 
 set(CMAKE_CXX_STANDARD 17)
 
