@@ -43,7 +43,7 @@ macro(component_require _name)
     else()
         message(STATUS ${arg_NOT_FOUND_MESSAGE})
         # message(STATUS "FetchContent_Declare(${_name} ${_ARGV} ...)")
-        FetchContent_Declare(${_name} ${ARGV} SYSTEM OVERRIDE_FIND_PACKAGE)
+        FetchContent_Declare(${_name} ${arg_UNPARSED_ARGUMENTS} SYSTEM OVERRIDE_FIND_PACKAGE)
         FetchContent_MakeAvailable(${_name})
     endif()
 
