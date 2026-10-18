@@ -1,0 +1,54 @@
+{
+  "name": "fxclient",
+  "version": "1.0.0",
+  "homepage": "https://github.com/spchamp/fxclient",
+  "description": "Unofficial C++ API client for the OANDA v20 JSON REST API, using OAT++",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "curl",
+      "features": [
+        "http2",
+        "c-ares",
+        "openssl"
+      ]
+    },
+    {
+      "name": "reflectcpp"
+    }
+  ],
+  "default-features": [
+    "oat"
+  ],
+  "features": {
+    "oat": {
+      "description": "Build with Oat++",
+      "dependencies": [
+        "oatpp",
+        "oatpp-curl",
+        "oatpp-openssl"
+      ]
+    },
+    "libcpr": {
+      "description": "Build with libcpr",
+      "dependencies": [
+        {
+          "name": "cpr",
+          "features": [
+            "ssl"
+          ]
+        }
+      ]
+    },
+    "kwallet": {
+      "description": "Build with kf5wallet for API token access",
+      "dependencies": [
+        "kf5wallet"
+      ]
+    }
+  }
+}
