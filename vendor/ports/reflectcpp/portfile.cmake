@@ -1,11 +1,11 @@
+## custom reflectcpp port
+
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO getml/reflect-cpp
     REF "v${VERSION}"
-    SHA512 527b8962754b2a5c48e63df72fe5030bceaa40c10762c4fd2ec1d084d9ced5726129cac9f1045fd818888e8468283f6867a5cbdd11bae290a4111b4a67eb573f
+    SHA512 95698bdc8695d3c72cc22aa2572b09e36d132adc8c6eb9f95a507ff57bc18fa329c05ed6e5ec878181e44fb227877c63479b71f75c68a9d40f13a97f46e41590
     HEAD_REF main
-    PATCHES
-        fix-bson.patch
 )
 
 if(VCPKG_TARGET_IS_WINDOWS)
@@ -28,6 +28,24 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         yaml                REFLECTCPP_YAML
 )
 
+if(VCPKG_TARGET_IS_WINDOWS)
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang"
+        AND VCPKG_DETECTED_CMAKE_CXX_SIMULATE_ID STREQUAL "MSVC")
+        # assume clang-cl, given script-mode information available at this time
+        #
+        # see also: vcpkg_cmake_get_vars()
+        # which is annotated: "Avoid usage in portfiles."
+        #
+        list(APPEND VCPKG_CXX_FLAGS -Xclang -fno-validate-pch)
+        list(APPEND VCPKG_C_FLAGS -Xclang -fno-validate-pch)
+    elseif(VCPKG_TARGET_IS_MINGW)
+        # may be needed when linking e.g reflectcpp_json.cpp under mingw (debug)
+        list(APPEND VCPKG_CXX_FLAGS -flto)
+        # must also set this with the CXX flags
+        list(APPEND VCPKG_C_FLAGS -flto)
+    endif()
+endif()
+
 vcpkg_cmake_configure(
     SOURCE_PATH ${SOURCE_PATH}
     OPTIONS
@@ -35,6 +53,7 @@ vcpkg_cmake_configure(
         -DREFLECTCPP_BUILD_TESTS=OFF
         -DREFLECTCPP_BUILD_SHARED=${REFLECTCPP_BUILD_SHARED}
         -DREFLECTCPP_USE_BUNDLED_DEPENDENCIES=OFF
+        -DREFLECTCPP_USE_STD_EXPECTED=ON
 )
 
 vcpkg_cmake_install()
