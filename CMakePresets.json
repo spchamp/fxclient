@@ -1,0 +1,157 @@
+{
+    "version": 5,
+    "cmakeMinimumRequired": {
+        "major": 4,
+        "minor": 2,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "devo",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/devo",
+            "environment": {
+                "CCACHE_BASEDIR": "${sourceDir}",
+                "CCACHE_ROOT": "${sourceDir}/build/ccache"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+                "CMAKE_CXX_STANDARD": "23",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/prefix_devo"
+            }
+        },
+        {
+            "name": "vcpkg-all-features",
+            "hidden": true,
+            "cacheVariables": {
+                "VCPKG_MANIFEST_FEATURES": "tests;oat;libcpr;kwallet",
+                "FX_OAT": "ON"
+            }
+        },
+        {
+            "name": "production",
+            "inherits": "devo",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "production-slim",
+            "inherits": "devo",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
+            "name": "vcpkg",
+            "hidden": true,
+            "environment": {
+                "VCPKG_ROOT": "${sourceDir}/vendor/vcpkg",
+                "VCPKG_MANIFEST_DIR": "${sourceDir}",
+                "VCPKG_BINARY_SOURCES": "clear;files,${sourceDir}/build/cache,readwrite"
+            },
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_VERBOSE": "ON"
+            }
+        },
+        {
+            "name": "devo-vcpkg",
+            "hidden": true,
+            "inherits": [
+                "vcpkg",
+                "devo"
+            ]
+        },
+        {
+            "name": "devo-w32-clang",
+            "inherits": "devo-vcpkg",
+            "environment": {
+                "CMAKE_CXX_COMPILER_LAUNCHER": "c:/ProgramData/chocolatey/bin/ccache.exe",
+                "CMAKE_C_COMPILER_LAUNCHER": "c:/ProgramData/chocolatey/bin/ccache.exe",
+                "VCPKG_DEFAULT_TRIPLET": "x64-win-llvm"
+            },
+            "cacheVariables": {
+                "CMAKE_MAKE_PROGRAM": "c:/ProgramData/chocolatey/bin/ninja.exe",
+                "CMAKE_C_COMPILER": "c:/Program Files/LLVM/bin/clang-cl.exe",
+                "CMAKE_CXX_COMPILER": "c:/Program Files/LLVM/bin/clang-cl.exe",
+                "VCPKG_TARGET_TRIPLET": "x64-win-llvm"
+            }
+        },
+        {
+            "name": "devo-w32-msvc",
+            "inherits": [
+                "devo-w32-clang",
+                "devo-vcpkg"
+            ],
+            "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-windows"
+            }
+        },
+        {
+            "name": "devo-w32-mingw-static",
+            "inherits": [
+                "devo-w32-clang",
+                "devo-vcpkg"
+            ],
+            "environment": {
+                "VCPKG_DEFAULT_TRIPLET": "x64-mingw-static"
+            },
+            "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static"
+            }
+        },
+        {
+            "name": "devo-linux-clang",
+            "inherits": "devo",
+            "environment": {
+                "CMAKE_C_COMPILER_LAUNCHER": "/usr/bin/ccache",
+                "CMAKE_CXX_COMPILER_LAUNCHER": "/usr/bin/ccache"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/clang",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+                "CMAKE_C_FLAGS": "-pipe -Wall -Og -ggdb -ferror-limit=0 -fno-omit-frame-pointer",
+                "CMAKE_CXX_FLAGS": "-pipe -Wall -Og -ggdb -ferror-limit=0 -fno-omit-frame-pointer",
+                "CMAKE_C_LINK_FLAGS": "-Wl,--as-needed",
+                "CMAKE_CXX_LINK_FLAGS": "-Wl,--as-needed"
+            }
+        },
+        {
+            "name": "devo-linux-gcc",
+            "inherits": "devo-linux-clang",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "/usr/bin/gcc",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+                "CMAKE_C_FLAGS": "-pipe -Wall -Og -ggdb -fmax-errors=0 -fno-omit-frame-pointer",
+                "CMAKE_CXX_FLAGS": "-pipe -Wall -Og -ggdb -fmax-errors=0 -fno-omit-frame-pointer"
+            }
+        },
+        {
+            "name": "devo-linux-vcpkg-clang",
+            "inherits": [
+                "devo-vcpkg",
+                "devo-linux-clang"
+            ]
+        },
+        {
+            "name": "tsan-linux-vcpkg-clang",
+            "inherits": "devo-linux-vcpkg-clang",
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS": "-pipe -Wall -Og -ggdb -fsanitize=thread -fno-omit-frame-pointer",
+                "CMAKE_CXX_LINK_FLAGS": "-fsanitize=thread",
+                "CMAKE_C_FLAGS": "-pipe -Wall -Og -ggdb -fsanitize=thread -fno-omit-frame-pointer",
+                "CMAKE_C_LINK_FLAGS": "-fsanitize=thread"
+            }
+        },
+        {
+            "name": "devo-freebsd-clang-base",
+            "inherits": "devo-linux-clang",
+            "environment": {
+                "CMAKE_C_COMPILER_LAUNCHER": "/usr/local/bin/ccache",
+                "CMAKE_CXX_COMPILER_LAUNCHER": "/usr/local/bin/ccache"
+            }
+        }
+    ]
+}
