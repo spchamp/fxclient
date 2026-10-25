@@ -10,27 +10,38 @@
       "host": true
     },
     {
-      "name": "curl",
-      "features": [
-        "http2",
-        "c-ares",
-        "openssl"
+      "name": "reflectcpp"
+    },
+    "boost-asio",
+    "boost-logic",
+    "boost-mpl",
+    "boost-outcome",
+    "boost-type-index",
+    "boost-logic",
+    "frozen"
+  ],
+  "default-features": [],
+  "features": {
+    "tests": {
+      "description": "Build tests",
+      "dependencies": [
+        "catch2"
       ]
     },
-    {
-      "name": "reflectcpp"
-    }
-  ],
-  "default-features": [
-    "oat"
-  ],
-  "features": {
     "oat": {
       "description": "Build with Oat++",
       "dependencies": [
         "oatpp",
         "oatpp-curl",
-        "oatpp-openssl"
+        "oatpp-openssl",
+        {
+          "name": "curl",
+          "features": [
+            "http2",
+            "c-ares",
+            "openssl"
+          ]
+        }
       ]
     },
     "libcpr": {
@@ -41,6 +52,14 @@
           "features": [
             "ssl"
           ]
+        },
+        {
+          "name": "curl",
+          "features": [
+            "http2",
+            "c-ares",
+            "openssl"
+          ]
         }
       ]
     },
@@ -50,5 +69,6 @@
         "kf5wallet"
       ]
     }
-  }
+  },
+  "builtin-baseline": "817892b0ecbc6af994dd6df999c73faf795adbf2"
 }
