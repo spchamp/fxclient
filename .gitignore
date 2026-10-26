@@ -5,6 +5,7 @@
 .#*
 *#
 /build*
+CMakeUserPresets.json
 compile_commands.json
 # generated files (autotools)
 config.status
