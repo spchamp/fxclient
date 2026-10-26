@@ -4,10 +4,10 @@ AlignAfterOpenBracket: true
 AccessModifierOffset: -4
 AlignArrayOfStructures: Right
 AlignConsecutiveAssignments:
-  Enabled:         false
-  AcrossEmptyLines: false
-  AcrossComments:  false
-  AlignCompound:   false
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+  AlignCompound:   true
   AlignFunctionDeclarations: false
   AlignFunctionPointers: false
   PadOperators:    true
@@ -20,25 +20,25 @@ AlignConsecutiveBitFields:
   AlignFunctionPointers: false
   PadOperators:    false
 AlignConsecutiveDeclarations:
-  Enabled:         false
-  AcrossEmptyLines: false
-  AcrossComments:  false
-  AlignCompound:   false
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+  AlignCompound:   true
   AlignFunctionDeclarations: true
   AlignFunctionPointers: false
-  PadOperators:    false
+  PadOperators:    true
 AlignConsecutiveMacros:
-  Enabled:         false
-  AcrossEmptyLines: false
-  AcrossComments:  false
-  AlignCompound:   false
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
+  AlignCompound:   true
   AlignFunctionDeclarations: false
   AlignFunctionPointers: false
-  PadOperators:    false
+  PadOperators:    true
 AlignConsecutiveShortCaseStatements:
-  Enabled:         false
-  AcrossEmptyLines: false
-  AcrossComments:  false
+  Enabled:         true
+  AcrossEmptyLines: true
+  AcrossComments:  true
   AlignCaseArrows: false
   AlignCaseColons: false
 AlignConsecutiveTableGenBreakingDAGArgColons:
@@ -140,7 +140,7 @@ BreakFunctionDefinitionParameters: false
 BreakInheritanceList: BeforeColon
 BreakStringLiterals: true
 BreakTemplateDeclarations: Yes
-ColumnLimit:     74
+ColumnLimit:     84
 CommentPragmas:  '^!<'
 CompactNamespaces: false
 ConstructorInitializerIndentWidth: 4
