@@ -109,8 +109,8 @@ struct LBasicText {
     }
 
     template <typename T>
-        requires (std::is_constructible_v<T, data_type&>)
-    T pack() const noexcept(std::is_nothrow_constructible_v<T, data_type&>) {
+        requires (std::is_constructible_v<T, const data_type&>)
+    T pack() const noexcept(std::is_nothrow_constructible_v<T, const data_type&>) {
         return T{data};
     }
 
