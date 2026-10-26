@@ -14,19 +14,15 @@ struct LText_test_t {
     static constexpr auto name = Name;
 
     template <LText Prefix>
-    static constexpr auto prepend() {
-        return Name.prepend(Prefix.data);
-    }
-
-    template <LText Prefix>
     static constexpr auto prepend_typed() {
-        using nxt_t = LText_test_t<Name.prepend(Prefix.data)>;
+        using nxt_t = LText_test_t<Name.prepend(Prefix.chars)>;
         return nxt_t{};
     }
 
     template <LText Suffix>
-    static constexpr auto append() {
-        return Name.append(Suffix.data);
+    static constexpr auto append_typed() {
+        using nxt_t = LText_test_t<Name.append(Suffix.chars)>;
+        return nxt_t{};
     }
 };
 
@@ -40,6 +36,7 @@ TEST_CASE("LText") {
     SECTION("contains") {
         CHECK(test_t::name.contains('m'));
         CHECK(!test_t::name.contains('z'));
+        CHECK(test_t::name.contains('\0'));
 
         using test_u = LText_test_t<"Nullified\0Name">;
         CHECK(decltype(test_u::name)::string_size_type::value
@@ -48,6 +45,7 @@ TEST_CASE("LText") {
         CHECK(test_u::name.contains('i'));
         CHECK(test_u::name.contains('m'));
         CHECK(test_u::name.contains('\0'));
+        CHECK(!test_u::name.contains('z'));
     }
 
     SECTION("prepend (chars)") {
@@ -63,10 +61,17 @@ TEST_CASE("LText") {
                      == std::string_view{"PrefixName"}.size());
     }
 
-    SECTION("append") {
+    SECTION("append (chars)") {
         auto rs = test_t::name.append("Suffix");
         CHECK(rs.to_view() == "NameSuffix");
         STATIC_CHECK(std::remove_cvref_t<decltype(rs)>::string_size_type::value
+                     == std::string_view{"NameSuffix"}.size());
+    }
+
+    SECTION("append (typed)") {
+        auto rs = test_t::append_typed<"Suffix">();
+        CHECK(rs.name.to_view() == "NameSuffix");
+        STATIC_CHECK(std::remove_cvref_t<decltype(rs.name)>::string_size_type::value
                      == std::string_view{"NameSuffix"}.size());
     }
 }
