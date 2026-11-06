@@ -15,13 +15,13 @@ struct LText_test_t {
 
     template <LText Prefix>
     static constexpr auto prepend_typed() {
-        using nxt_t = LText_test_t<Name.prepend(Prefix.chars)>;
+        using nxt_t = LText_test_t<Name.prepend(Prefix.data)>;
         return nxt_t{};
     }
 
     template <LText Suffix>
     static constexpr auto append_typed() {
-        using nxt_t = LText_test_t<Name.append(Suffix.chars)>;
+        using nxt_t = LText_test_t<Name.append(Suffix.data)>;
         return nxt_t{};
     }
 };
