@@ -48,12 +48,12 @@
                 BOOST_PP_TUPLE_REMOVE(BOOST_PP_TUPLE_REMOVE(_field, 0), 0), 0))
 
 #define _SERIAL_FIELD_T(_cls, _field)                                              \
-    MODEL_NS::NamedField<BOOST_PP_TUPLE_ELEM(1, _field),                           \
-                         _SERIAL_FIELD_NAME_IMPL(_field),                          \
-                         _cls BOOST_PP_IF(                                         \
-                               BOOST_PP_GREATER(BOOST_PP_TUPLE_SIZE(_field), 3),   \
-                               BOOST_PP_COMMA, BOOST_PP_EMPTY)()                   \
-                               _SERIAL_FIELD_REST_IMPL(_field)>
+    ::fxsupport::NamedField<                                                       \
+          BOOST_PP_TUPLE_ELEM(1, _field), _SERIAL_FIELD_NAME_IMPL(_field),         \
+          _cls BOOST_PP_IF(BOOST_PP_GREATER(BOOST_PP_TUPLE_SIZE(_field), 3),       \
+                           BOOST_PP_COMMA, BOOST_PP_EMPTY)()                       \
+                _SERIAL_FIELD_REST_IMPL(_field)                                    \
+    >
 
 
 #define _SERIAL_FIELD_T_ENUM(_z, _n, _defs)                                        \
@@ -78,17 +78,17 @@
 
 #define _SERIAL_CLASS_DEFINE(_name, _info, _afields)                               \
     struct _name                                                                   \
-        : MODEL_NS::SerialObject<_name _SERIAL_CLS_COMMA_IF(                       \
+        : ::fxsupport::SerialObject<_name _SERIAL_CLS_COMMA_IF(                    \
                 _afields) BOOST_PP_ENUM(BOOST_PP_ARRAY_SIZE(_afields),             \
                                         _SERIAL_FIELD_T_ENUM,                      \
                                         BOOST_PP_LIST_CONS(_name, _afields))> {    \
                                                                                    \
-        using _base_type = MODEL_NS::SerialObject<_name _SERIAL_CLS_COMMA_IF(      \
+        using _base_type = ::fxsupport::SerialObject<_name _SERIAL_CLS_COMMA_IF(   \
               _afields) BOOST_PP_ENUM(BOOST_PP_ARRAY_SIZE(_afields),               \
                                       _SERIAL_FIELD_T_ENUM,                        \
                                       BOOST_PP_LIST_CONS(_name, _afields))>;       \
                                                                                    \
-        static constexpr const MODEL_NS::                                          \
+        static constexpr const ::fxsupport::                                       \
               SerialMetadata<_name, _SERIAL_METADATA_NAME(_name, _info)>           \
                     _metadata{_SERIAL_METADATA_ARGS(                               \
                           _SERIAL_POP_TUPLE(_SERIAL_POP_TUPLE(_info)))};           \

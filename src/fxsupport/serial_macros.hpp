@@ -25,10 +25,6 @@
 #include <boost/preprocessor/tuple/to_list.hpp>
 #include <boost/preprocessor/repetition/enum.hpp>
 
-#ifndef MODEL_NS
-#    define MODEL_NS ::fxsupport
-#endif
-
 #define _SERIAL_NAME(_name) BOOST_PP_CAT(SERIAL_PREFIX, _name)
 
 #define _SERIAL_DISCARD(...)
@@ -40,12 +36,12 @@
 
 
 #define _ASERIAL_METADATA_ENUM(_z, _n, _md)                                        \
-    MODEL_NS::metadata_param::BOOST_PP_TUPLE_ELEM(0,                              \
+    ::fxsupport::metadata_param::BOOST_PP_TUPLE_ELEM(0,                              \
                                                    BOOST_PP_ARRAY_ELEM(_n, _md)) = \
           BOOST_PP_TUPLE_ELEM(1, BOOST_PP_ARRAY_ELEM(_n, _md))
 
 #define _SERIAL_METADATA_ENUM(_z, _n, _md)                                         \
-    MODEL_NS::metadata_param::BOOST_PP_TUPLE_ELEM(0,                              \
+    ::fxsupport::metadata_param::BOOST_PP_TUPLE_ELEM(0,                              \
                                                    BOOST_PP_TUPLE_ELEM(_n, _md)) = \
           BOOST_PP_TUPLE_ELEM(1, BOOST_PP_TUPLE_ELEM(_n, _md))
 

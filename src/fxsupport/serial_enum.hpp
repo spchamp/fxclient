@@ -40,6 +40,9 @@
 
 #include <boost/preprocessor/variadic/to_array.hpp>
 
+#ifndef MODEL_NS
+#    define MODEL_NS fxmodel
+#endif
 
 #ifndef SERIAL_PREFIX
 #    define SERIAL_PREFIX Serial
@@ -111,7 +114,7 @@
 // related to how the hash functions are implemented when compiled
 // as constexpr, when using boost hash2 within the hash op.
 //
-// A `const inline` form may be sufficient for the name->value mapping container 
+// A `const inline` form may be sufficient for the name->value mapping container
 // here, insofar as for purpose of name->value translation at runtime. In this
 // case, the mapping can use an std::unordered_map
 //
@@ -137,7 +140,7 @@
           BOOST_PP_ARRAY_SIZE(_memb), _SERIAL_ENUM_ENUM_NAME, _memb)};             \
                                                                                    \
     using name_member_map_t =                                                      \
-          MODEL_NS::detail::name_member_map_type<char_type, _name, count>;         \
+          ::fxsupport::detail::name_member_map_type<char_type, _name, count>;      \
                                                                                    \
     static /* constexpr */ inline const name_member_map_t name_member_map =        \
           []<std::size_t... N>(std::index_sequence<N...> const&) {                 \
@@ -148,7 +151,7 @@
           }(index);                                                                \
                                                                                    \
     using member_name_map_t =                                                      \
-          MODEL_NS::detail::member_name_map_type<char_type, _name, count>;         \
+          ::fxsupport::detail::member_name_map_type<char_type, _name, count>;      \
                                                                                    \
     static /* constexpr */ inline const member_name_map_t member_name_map =        \
           []<std::size_t... N>(std::index_sequence<N...> const&) {                 \
@@ -164,18 +167,18 @@
                 _SERIAL_DISCARD)(_name, _info, _memb)                              \
                                                                                    \
           struct _SERIAL_NAME(_name)                                               \
-        : MODEL_NS::SerialEnum<_SERIAL_NAME(_name), _name> {                       \
+        : ::fxsupport::SerialEnum<_SERIAL_NAME(_name), _name> {                    \
                                                                                    \
-        static constexpr MODEL_NS::SerialMetadata<_name, _SERIAL_ENUM_MODEL_NAME(  \
-                                                               _name, _info)>      \
-              _metadata{_SERIAL_METADATA_ARGS(                                     \
-                    _SERIAL_POP_TUPLE(_SERIAL_POP_TUPLE(_info)))};                 \
+        static constexpr ::fxsupport::                                             \
+              SerialMetadata<_name, _SERIAL_ENUM_MODEL_NAME(_name, _info)>         \
+                    _metadata{_SERIAL_METADATA_ARGS(                               \
+                          _SERIAL_POP_TUPLE(_SERIAL_POP_TUPLE(_info)))};           \
                                                                                    \
         BOOST_PP_IF(_SERIAL_ENUM_INLINE_P(_memb), _SERIAL_DISCARD,                 \
                     _SERIAL_ENUM_DEFS)(_name, _info, _memb)                        \
     }; /* SerialEnum subclass */                                                   \
     template <>                                                                    \
-    struct MODEL_NS::detail::enum_model<_name>                                     \
+    struct ::MODEL_NS::enum_model<_name>                                            \
         : std::type_identity<_SERIAL_NAME(_name)> {}
 
 #define SERIAL_ENUM(_name, _info, ...)                                             \

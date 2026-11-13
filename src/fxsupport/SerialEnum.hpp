@@ -14,6 +14,10 @@
 #include <fxsupport/serial_enum_detail.hpp>
 #include <fxsupport/name_ops.hpp>
 
+#ifndef MODEL_NS
+#    define MODEL_NS fxmodel
+#endif
+
 namespace fxsupport {
 
 using FIX8::conjure_enum;
@@ -67,7 +71,7 @@ struct SerialEnum<Impl, T> {
 };
 
 template <typename T>
-concept serial_enum = std::is_same_v<typename detail::enum_model<T>::type::type, T>;
+concept serial_enum = std::is_same_v<typename ::MODEL_NS::enum_model<T>::type::type, T>;
 
 template <typename T>
 concept serial_enum_model =

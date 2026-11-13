@@ -6,7 +6,11 @@
 
 #include <fxsupport/name_ops.hpp>
 
-namespace fxsupport::detail {
+#ifndef MODEL_NS
+#    define MODEL_NS fxmodel
+#endif
+
+namespace MODEL_NS {
 
 /// @brief generalized template base for partial specializations
 /// onto some enum or enum-like `T`
@@ -36,6 +40,10 @@ namespace fxsupport::detail {
 ///
 template <typename T>
 struct enum_model {};
+
+}  // namespace MODEL_NS
+
+namespace fxsupport::detail {
 
 /// mapping type from a string view to some type T
 //

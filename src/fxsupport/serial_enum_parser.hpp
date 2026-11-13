@@ -10,6 +10,10 @@
 #include <rfl/parsing/AreReaderAndWriter.hpp>
 #include <rfl/Result.hpp>
 
+#ifndef MODEL_NS
+#    define MODEL_NS fxmodel
+#endif
+
 /// @brief Reflector interfacte for serial enums
 ///
 /// The primary purpose of this class is to ensure that the parser
@@ -21,11 +25,10 @@ struct rfl::Reflector<T> {
 
     using enum_type       = T;
     using underlying_type = std::underlying_type_t<enum_type>;
-    using model_type =
-          typename fxsupport::detail::enum_model<enum_type>::type;
+    using model_type      = typename ::MODEL_NS::enum_model<enum_type>::type;
 
-    using serial_type = std::basic_string<typename model_type::char_type>;
-    using ReflType    = serial_type;
+    using serial_type     = std::basic_string<typename model_type::char_type>;
+    using ReflType        = serial_type;
 
     static enum_type to(serial_type const& name) {
         if (model_type::name_member_map.contains(name)) {
