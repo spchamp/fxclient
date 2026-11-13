@@ -29,6 +29,25 @@
         "catch2"
       ]
     },
+    "storage": {
+      "description": "Storage (devo)",
+      "dependencies": [
+        "ddtdanilo-lmdb-wrapper",
+        {
+          "name": "reflectcpp",
+          "features": [
+            "flexbuffers"
+          ]
+        },
+        "pkgconf",
+        {
+          "name": "lmdb",
+          "features": [
+            "tools"
+          ]
+        }
+      ]
+    },
     "oat": {
       "description": "Build with Oat++",
       "dependencies": [

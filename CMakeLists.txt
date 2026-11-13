@@ -30,6 +30,8 @@ endif()
 
 option(FX_OAT "Build components for oatpp" OFF)
 
+option(FX_FLAT "Build tests for serialization with flatbuffers" OFF)
+
 option(FX_BUILD_SHARED_LIBS "Build libraries as shared objects" ${BUILD_SHARED_LIBS})
 option(FX_BUILD_TESTING "Build tests" ${PROJECT_IS_TOP_LEVEL})
 
@@ -118,6 +120,21 @@ component_require(frozen
     GIT_SHALLOW ON
 )
 
+
+if(FX_FLAT)
+    set(CACHE{FLATBUFFERS_BUILD_TESTS} TYPE INTERNAL VALUE OFF)
+    set(CACHE{FLATBUFFERS_STATIC_FLATC} TYPE INTERNAL VALUE ON)
+    set(CACHE{REFLECTCPP_FLEXBUFFERS} TYPE INTERNAL VALUE ON)
+    component_require(flatbuffers
+        GIT_REPOSITORY https://github.com/google/flatbuffers.git
+        GIT_TAG v25.12.19-2026-02-06-03fffb2
+        GIT_SHALLOW ON
+    )
+    list(APPEND FX_DEFINES FX_HAVE_FLATBUFFERS)
+    find_package(PkgConfig QUIET REQUIRED)
+    pkg_check_modules(FLATBUFFERS REQUIRED IMPORTED_TARGET GLOBAL flatbuffers)
+    list(APPEND FX_LIBS PkgConfig::FLATBUFFERS)
+endif()
 
 component_require(reflectcpp
     GIT_REPOSITORY https://github.com/munich-data-engineering/reflect-cpp.git
