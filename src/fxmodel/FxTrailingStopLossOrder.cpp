@@ -1,0 +1,1 @@
+#include <fxmodel/FxTrailingStopLossOrder.hpp>

@@ -1,0 +1,1 @@
+#include <fxmodel/FxDailyFinancingTransaction.hpp>

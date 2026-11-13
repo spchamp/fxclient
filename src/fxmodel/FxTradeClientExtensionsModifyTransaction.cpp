@@ -1,0 +1,1 @@
+#include <fxmodel/FxTradeClientExtensionsModifyTransaction.hpp>

@@ -1,0 +1,1 @@
+#include <fxmodel/FxStopOrderRejectTransaction.hpp>

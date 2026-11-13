@@ -1,0 +1,1 @@
+#include <fxmodel/FxTransferFundsTransaction.hpp>
