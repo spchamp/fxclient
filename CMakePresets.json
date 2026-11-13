@@ -18,14 +18,16 @@
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": true,
                 "CMAKE_CXX_STANDARD": "23",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/prefix_devo"
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/prefix_devo",
+                "VCPKG_MANIFEST_FEATURES": "tests",
+                "VCPKG_BUILD_TYPE": "debug"
             }
         },
         {
             "name": "vcpkg-all-features",
             "hidden": true,
             "cacheVariables": {
-                "VCPKG_MANIFEST_FEATURES": "tests;oat;libcpr;kwallet",
+                "VCPKG_MANIFEST_FEATURES": "tests;oat;libcpr;kwallet;storage",
                 "FX_OAT": "ON"
             }
         },
@@ -62,7 +64,11 @@
             "inherits": [
                 "vcpkg",
                 "devo"
-            ]
+            ],
+            "cacheVariables": {
+                "VCPKG_MANIFEST_FEATURES": "tests",
+                "FX_FLAT": "ON"
+            }
         },
         {
             "name": "devo-w32-clang",
@@ -76,7 +82,8 @@
                 "CMAKE_MAKE_PROGRAM": "c:/ProgramData/chocolatey/bin/ninja.exe",
                 "CMAKE_C_COMPILER": "c:/Program Files/LLVM/bin/clang-cl.exe",
                 "CMAKE_CXX_COMPILER": "c:/Program Files/LLVM/bin/clang-cl.exe",
-                "VCPKG_TARGET_TRIPLET": "x64-win-llvm"
+                "VCPKG_TARGET_TRIPLET": "x64-win-llvm",
+                "CMAKE_CXX_FLAGS": "/Z7 -Xclang -fexceptions -Xclang -fcxx-exceptions"
             }
         },
         {
@@ -117,6 +124,11 @@
                 "CMAKE_C_LINK_FLAGS": "-Wl,--as-needed",
                 "CMAKE_CXX_LINK_FLAGS": "-Wl,--as-needed"
             }
+        },
+        {
+            "name": "wsl-clang",
+            "inherits": "devo-linux-vcpkg-clang",
+            "binaryDir": "${sourceDir}/build/devo_wsl"
         },
         {
             "name": "devo-linux-gcc",

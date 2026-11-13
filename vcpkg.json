@@ -13,11 +13,12 @@
       "name": "reflectcpp"
     },
     "boost-asio",
-    "boost-logic",
+    "boost-decimal",
     "boost-mpl",
-    "boost-outcome",
+    "boost-parameter",
+    "boost-preprocessor",
     "boost-type-index",
-    "boost-logic",
+    "conjure-enum",
     "frozen"
   ],
   "default-features": [],

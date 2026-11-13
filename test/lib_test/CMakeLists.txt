@@ -1,12 +1,12 @@
 
 add_catch_test(test_ltext
-    LIBRARIES fxclient
+    LIBRARIES fxsupport
 )
 
 add_catch_test(test_parameter
-    LIBRARIES fxclient
+    LIBRARIES fxsupport
 )
 
 add_catch_test(test_metatypes
-    LIBRARIES fxclient
+    LIBRARIES fxsupport
 )

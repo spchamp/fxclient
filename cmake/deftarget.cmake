@@ -153,7 +153,7 @@ function(deftarget _name)
     foreach(_scope PUBLIC PRIVATE INTERFACE)
         _tgt_scoped(${_name} arg ${_scope} LIBRARIES link_libraries)
         _tgt_scoped(${_name} arg ${_scope} LINK_DIRS link_directories)
-        _tgt_scoped(${_name} arg ${_scope} INCLUDES include_directories) # FIXME build interface ...
+        _tgt_scoped(${_name} arg ${_scope} INCLUDES include_directories)
         _tgt_scoped(${_name} arg ${_scope} DEFINES compile_definitions)
         _tgt_scoped(${_name} arg ${_scope} OPTIONS compile_options)
         _tgt_scoped(${_name} arg ${_scope} FEATURES compile_features)
